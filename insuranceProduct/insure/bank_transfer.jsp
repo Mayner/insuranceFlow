@@ -1,0 +1,111 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no">
+    <title>转账支付</title>
+    <link rel="stylesheet" href="../../../shopping/css/insuranceBase.css">
+    <link rel="stylesheet" href="../../../shopping/css/largePayConfirm.css">
+    <link href="../../../shopping/css/mobiscroll-2.13.2.full.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../../shopping/css/iosSelect.css" rel="stylesheet" type="text/css" />
+    <script src="../../../shopping/js/path.js"></script>
+    <script src="../../../shopping/js/jquery-1.10.1.min.js"></script>
+    <script src="../../../shopping/js/html5shiv.min.js"></script>
+    <script src="../../../shopping/js/rem.min.js"></script>
+    <script src="../../../shopping/js/runRem.js"></script>
+    <script src="../../../shopping/js/fastclick.js"></script>
+    <script src="../../../shopping/js/runFastclick.js"></script>
+    <script src="../../../shopping/js/checkFn.js"></script>
+    <script src="../../../shopping/js/largePayConfirm.js"></script>
+    <script src="../../../shopping/js/mobiscroll-2.13.2.full.min.js" type="text/javascript"></script>
+    <script src="../../../shopping/js/iscroll.js" type="text/javascript"></script>
+    <script src="../../../shopping/js/iosSelect01.js" type="text/javascript"></script>
+</head>
+<body>
+<article class="info">
+    <form id="formId" name="formName" method="post" action="">
+        <!--投保人信息-->
+        <section class="infoList">
+            <div class="infoSec pl pr bgColor borTop1 borBot1">
+                <dl class="clearfix infoDl borBot1 dlSec">
+                    <dt class="w45 l-float">姓名</dt>
+                    <dd class="w55 l-float txtR">
+                        <input type="text" class="textfield txtR" id="policyName" placeholder="请输入开户名">
+                    </dd>
+                    <span class="errorMsg"></span>
+                </dl>
+                <dl class="clearfix infoDl borBot1 dlSec">
+                    <dt class="w45 l-float">开户银行</dt>
+                    <dd class="w55 l-float txtR hasArrow">
+                        <select  id="accountBank" class = "bankBtn">
+                            <option value="">请选择</option>
+                            <option value="0001">中国银行</option>
+                            <option>中国工商银行</option>
+                        </select>
+                        <i class="arrow"></i>
+                    </dd>
+                    <span class="errorMsg"></span>
+                </dl>
+                <dl class="clearfix infoDl borBot1 dlSec">
+                    <dt class="w35 l-float">开户所在地</dt>
+                    <dd class="w65 l-float txtR hasArrow">
+                        <input type="hidden" name = "" id ="" value="2" />
+                         <input type="hidden" class="personInfo" name = "renewalBank.banksProvince" value="" />
+                         <input type="hidden" class="personInfo" name = "renewalBank.banksCity" value="" />
+                         <input type="hidden" class="personInfo" name = "renewalBank." value="" />
+                         <input type="text" class="chosen txtR pr" readonly placeholder="请选择" id = "bankArea">
+                    	 <i class="arrow"></i>
+                    </dd>
+                    <span class="errorMsg"></span>
+                </dl>
+                <dl class="clearfix infoDl borBot1 dlSec">
+                    <dt class="w45 l-float">银行卡号</dt>
+                    <dd class="w55 l-float txtR">
+                        <input type="text" class="textfield txtR" id="cardNo" placeholder="请输入">
+                    </dd>
+                    <span class="errorMsg"></span>
+                </dl>
+                <dl class="clearfix infoDl borBot1 dlSec">
+                    <dt class="w45 l-float">再次输入银行卡号</dt>
+                    <dd class="w55 l-float txtR">
+                        <input type="text" class="textfield txtR" id="cardNoAgain" placeholder="请输入">
+                    </dd>
+                    <span class="errorMsg"></span>
+                </dl>
+            </div>
+        </section>
+    </form>
+    <!--支付按钮-->
+    <div class="txtC confirmBtn">确认支付</div>
+</article>
+<!--加载动画-->
+<div class="loading">
+    <div class="sk-circle">
+        <div class="sk-circle1 sk-child"></div>
+        <div class="sk-circle2 sk-child"></div>
+        <div class="sk-circle3 sk-child"></div>
+        <div class="sk-circle4 sk-child"></div>
+        <div class="sk-circle5 sk-child"></div>
+        <div class="sk-circle6 sk-child"></div>
+        <div class="sk-circle7 sk-child"></div>
+        <div class="sk-circle8 sk-child"></div>
+        <div class="sk-circle9 sk-child"></div>
+        <div class="sk-circle10 sk-child"></div>
+        <div class="sk-circle11 sk-child"></div>
+        <div class="sk-circle12 sk-child"></div>
+    </div>
+</div>
+</body>
+</html>

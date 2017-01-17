@@ -1,0 +1,371 @@
+@charset "utf-8";
+html,body {
+    background-color: #F2F2F2;
+    color: #222222;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:1000;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.header>span {
+	color: #222222;
+	font-size: 0.85rem;
+    line-height: 2.2rem;
+    display: inline-block;
+}
+.info {
+    margin-top: 2.2rem;
+}
+.info .infoList p {
+    font-weight: bold;
+    font-size: 0.8rem;
+    height: 1.65rem;
+    line-height: 1.65rem;
+}
+.infoSec {
+    font-size: 0.8rem;
+}
+.infoSec>dl:last-child {
+    border-bottom: none;
+}
+.textfield {
+    font-size: 0.65rem;
+    width: 100%;
+}
+select {
+    font-size: 0.65rem;
+    width: 100%;
+    direction: rtl;
+    padding-right: 1rem;
+    color: #999999;
+}
+.longTime {
+    font-size: 0.6rem;
+}
+.choose {
+    position: relative;
+}
+.checkBox {
+    width: 1.1rem;
+    height: 1.1rem;
+    display: inline-block;
+    background: url(../images/checked.png);
+    background-size: 100%;
+    -webkit-background-size:100%;
+    position: absolute;
+    top: 0;
+    right: 0.425rem;
+}
+.unCheckBox {
+    width: 1.1rem;
+    height: 1.1rem;
+    display: inline-block;
+    background: url(../images/unchecked.png);
+    background-size: 100%;
+    -webkit-background-size:100%;
+    position: absolute;
+    top: 0;
+    right: 0.425rem;
+}
+.hasArrow {
+    position: relative;
+}
+.arrow {
+    width: 0.65rem;
+    height: 0.65rem;
+    display: inline-block;
+    background: url(../images/arrow.png);
+    background-size: 100%;
+    -webkit-background-size:100%;
+    position: absolute;
+    top: 0.25rem;
+    right: 0;
+}
+.chosen {
+    font-size: 0.65rem;
+}
+.provinceArrow {
+    right:4.7rem;
+}
+.turnOn {
+    width: 1.8rem;
+    height: 1.1rem;
+    display: inline-block;
+    background: url(../images/turnOn.png);
+    background-size: 100%;
+    -webkit-background-size:100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.turnOff {
+    width: 1.8rem;
+    height: 1.1rem;
+    display: inline-block;
+    background: url(../images/turnOff.png);
+    background-size: 100%;
+    -webkit-background-size:100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#birthdayChoose, #sexChoose, #insuredBirthdayChoose, #insuredSexChoose {
+    display: none;
+}
+.birthday, .insuredBirthday {
+    padding-right: 0.75rem;
+    display: inline-block;
+}
+.insured {
+    display: none;
+}
+.only {
+    font-size: 0.65rem;
+}
+.infoList .infoSec .title {
+    font-weight: 400;
+    font-size: 0.625rem;
+    text-align: center;
+    height: 1.15rem;
+    line-height:1.15rem;
+}
+.infoList .infoSec .content {
+    color: #999999;
+    font-size: 0.625rem;
+    text-align: center;
+    display: inline-block;
+}
+.tip {
+	font-size: 0.575rem;
+	color: #D43333;
+	height: 1.2rem;
+	display: block;
+}
+.whetherRead {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 3.575rem;
+}
+.whetherRead span {
+    padding-left: 1.6rem;
+    font-size: 0.625rem;
+}
+.whetherRead span a {
+    color: #D43333;
+}
+#whetherCheck {
+    top: -0.075rem;
+    left: 0;
+}
+.insurePrice {
+    color: #D43333;
+    font-size: 0.925rem;
+}
+.insureBtn {
+    background-color: #D43333;
+    color: #fff;
+}
+.fixedBox {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 2.2rem;
+    font-size: 0.8rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 500;
+}
+input.tmp {
+    font-size: 0.65rem;
+    color: #999999;
+    text-align: right;
+    padding-right: 0.75rem;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#province_dummy,#city_dummy {
+    width: 50%;
+}
+#accountProvince_dummy, #accountCity_dummy {
+    width: 50%;
+}
+.dlSec {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+}
+.errorMsg {
+    width: 100%;
+    display: none;
+    color: #D43333;
+    font-size: 0.6rem;
+    text-align: right;
+}
+/* loading动画 */
+.loading{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.2);
+    z-index:2000;
+    display: none;
+}
+.loading .sk-circle {
+    margin: 0 auto;
+    width: 3rem;
+    height: 3rem;
+    position: relative;
+    top: 20%;
+}
+.loading .sk-circle .sk-child {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.loading .sk-circle .sk-child:before {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 15%;
+    height: 15%;
+    background-color: #d43333;
+    border-radius: 100%;
+    -webkit-animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
+    animation: sk-circleBounceDelay 1.2s infinite ease-in-out both;
+}
+.loading .sk-circle .sk-circle2 {
+    -webkit-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+.loading .sk-circle .sk-circle3 {
+    -webkit-transform: rotate(60deg);
+    -ms-transform: rotate(60deg);
+    transform: rotate(60deg);
+}
+.loading .sk-circle .sk-circle4 {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.loading .sk-circle .sk-circle5 {
+    -webkit-transform: rotate(120deg);
+    -ms-transform: rotate(120deg);
+    transform: rotate(120deg);
+}
+.loading .sk-circle .sk-circle6 {
+    -webkit-transform: rotate(150deg);
+    -ms-transform: rotate(150deg);
+    transform: rotate(150deg);
+}
+.loading .sk-circle .sk-circle7 {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.loading .sk-circle .sk-circle8 {
+    -webkit-transform: rotate(210deg);
+    -ms-transform: rotate(210deg);
+    transform: rotate(210deg);
+}
+.loading .sk-circle .sk-circle9 {
+    -webkit-transform: rotate(240deg);
+    -ms-transform: rotate(240deg);
+    transform: rotate(240deg);
+}
+.loading .sk-circle .sk-circle10 {
+    -webkit-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+.loading .sk-circle .sk-circle11 {
+    -webkit-transform: rotate(300deg);
+    -ms-transform: rotate(300deg);
+    transform: rotate(300deg);
+}
+.loading .sk-circle .sk-circle12 {
+    -webkit-transform: rotate(330deg);
+    -ms-transform: rotate(330deg);
+    transform: rotate(330deg);
+}
+.loading .sk-circle .sk-circle2:before {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+.loading .sk-circle .sk-circle3:before {
+    -webkit-animation-delay: -1s;
+    animation-delay: -1s;
+}
+.loading .sk-circle .sk-circle4:before {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+.loading .sk-circle .sk-circle5:before {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+.loading .sk-circle .sk-circle6:before {
+    -webkit-animation-delay: -0.7s;
+    animation-delay: -0.7s;
+}
+.loading .sk-circle .sk-circle7:before {
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+}
+.loading .sk-circle .sk-circle8:before {
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+.loading .sk-circle .sk-circle9:before {
+    -webkit-animation-delay: -0.4s;
+    animation-delay: -0.4s;
+}
+.loading .sk-circle .sk-circle10:before {
+    -webkit-animation-delay: -0.3s;
+    animation-delay: -0.3s;
+}
+.loading .sk-circle .sk-circle11:before {
+    -webkit-animation-delay: -0.2s;
+    animation-delay: -0.2s;
+}
+.loading .sk-circle .sk-circle12:before {
+    -webkit-animation-delay: -0.1s;
+    animation-delay: -0.1s;
+}
+@-webkit-keyframes sk-circleBounceDelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@keyframes sk-circleBounceDelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    40% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}

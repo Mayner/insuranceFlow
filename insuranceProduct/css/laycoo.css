@@ -1,0 +1,122 @@
+.layOcc{
+	height: 100%;
+	background: #e2e2e2;
+}
+.layOcc>p{
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	font-size: 0.75rem;
+	color: #d43333;
+	background: #fff;
+    font-family: "Microsoft YaHei",Arial,sans-serif,Helvetica,"SimHei";
+}
+.layOcc .accSearch{
+	width: 90%;
+	margin: 0.4rem auto 0rem;
+	position: relative;
+}
+.layOcc .accSearch #search{
+	height: 1.35rem;
+	width: 100%;
+	font-size: 0.55rem;
+	border-radius: 0.5rem;
+	padding-left: 1.4rem;
+	-moz-box-sizing: border-box;  
+    -webkit-box-sizing: border-box; 
+    -o-box-sizing: border-box; 
+    -ms-box-sizing: border-box; 
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei",Arial,sans-serif,Helvetica,"SimHei";
+}
+.layOcc .accSearch i{
+	display: block;
+	height: 0.6rem;
+	width: 0.6rem;
+	background-image: url(../images/search.png);
+	background-size: 100% 100%;
+	position: absolute;
+	left: 0.45rem;
+	top: 0.35rem;
+}
+.layOcc .occCon .occLevel{
+	margin-top: 0.4rem;
+	background: #fff;
+	position: relative;
+}
+.layOcc .occCon .occLevel>i{
+	display: block;
+	height: 0.65rem;
+	width: 0.65rem;
+	background-image: url(../images/down.png);
+	background-size: 100% 100%;
+	position: absolute;
+	right: 0.75rem;
+	top: 0.4rem;
+}
+.layOcc .occCon .occLevel.active>i{
+	background-image: url(../images/up.png);
+}
+.layOcc .occCon .occLevel.active ul{
+	display: block;
+}
+.layOcc .occCon .occLevel ul{
+	position: relative;
+	display: none;
+	background: #ccc;
+}
+.layOcc .occCon .occLevel ul>i{
+	display: block;
+	height: 0.65rem;
+	width: 0.65rem;
+	background-image: url(../images/down.png);
+	background-size: 100% 100%;
+	position: absolute;
+	right: 0.75rem;
+	top: 0.4rem;
+}
+.layOcc .occCon .occLevel ul.active>i{
+	background-image: url(../images/up.png);
+}
+.layOcc .occCon .occLevel.active ul.active li{
+	display: block;
+}
+.layOcc .occCon .occLevel ul li{
+	display: none;
+}
+.layOcc .occCon .occLevel .level01{
+	font-size: 0.75rem;
+	padding: 0.3rem 0.75rem;
+	border-bottom: solid #e2e2e2 0.025rem;
+}
+.layOcc .occCon .occLevel .level02{
+	font-size: 0.65rem;
+	font-weight: normal;
+	padding: 0.3rem 0.75rem;
+	border-bottom: solid #ccc 0.025rem;
+	background: #e2e2e2;
+}
+.layOcc .occCon .occLevel .level03{
+	font-size: 0.65rem;
+	font-weight: normal;
+	border-bottom: dashed #fff 0.025rem;
+	padding: 0.3rem 0rem;
+	margin: 0 1.2rem;
+}
+#wrapper {
+	position:absolute;
+	z-index:1;
+	top:45px;
+	bottom:0;
+	left:0;
+	width:100%;
+	background:#e2e2e2;
+	overflow:auto;
+}
+#scroller {
+	position:absolute;
+	z-index:1;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	width:100%;
+	padding:0;
+}
