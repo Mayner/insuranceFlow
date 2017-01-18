@@ -1,2 +1,2 @@
 # insuranceFlow
-This is some pages of insuranceFlow
+There are some pages of insuranceFlow
