@@ -205,7 +205,9 @@ var occ = 	[{
 			}];
 			var third = [];
 $(document).ready(function() {
-	$("#occ").click(function(event) {
+	var _this;
+	$(".occ").click(function(event) {
+		_this = $(this);
 		layer.open({
 		    type: 1,
             content: '<div class="layOcc">'+
@@ -223,16 +225,16 @@ $(document).ready(function() {
                      '                    <ul>'+
                      '                        <h2 class="level02">第二级职业</h2>'+
                      '                        <i></i>'+
-                     '                        <li data-occcode="" data-occlevel="" class="level03">第三极职业</li>'+
-                     '                        <li data-occcode="" data-occlevel="" class="level03">第三极职业</li>'+
-                     '                        <li data-occcode="" data-occlevel="" class="level03">第三极职业</li>'+
+                     '                        <li data-occcode="" data-occlevel="" class="level03">第三级职业</li>'+
+                     '                        <li data-occcode="" data-occlevel="" class="level03">第三级职业</li>'+
+                     '                        <li data-occcode="" data-occlevel="" class="level03">第三级职业</li>'+
                      '                    </ul>'+
                      '                    <ul>'+
                      '                        <h2 class="level02">第二级职业</h2>'+
                      '                        <i></i>'+
-                     '                        <li data-occcode="" data-occlevel="" class="level03">第三极职业</li>'+
-                     '                        <li data-occcode="" data-occlevel="" class="level03">第三极职业</li>'+
-                     '                        <li data-occcode="" data-occlevel="" class="level03">第三极职业</li>'+
+                     '                        <li data-occcode="" data-occlevel="" class="level03">职业</li>'+
+                     '                        <li data-occcode="" data-occlevel="" class="level03">职业</li>'+
+                     '                        <li data-occcode="" data-occlevel="" class="level03">职业</li>'+
                      '                    </ul>'+
                      '                </div>'+
                      '                <div class="occLevel">'+
@@ -241,9 +243,9 @@ $(document).ready(function() {
                      '                    <ul>'+
                      '                        <h2 class="level02">第二级职业</h2>'+
                      '                        <i></i>'+
-                     '                        <li data-occcode="" data-occlevel="" class="level03">第三极职业</li>'+
-                     '                        <li data-occcode="" data-occlevel="" class="level03">第三极职业</li>'+
-                     '                        <li data-occcode="" data-occlevel="" class="level03">第三极职业</li>'+
+                     '                        <li data-occcode="" data-occlevel="" class="level03">第三极</li>'+
+                     '                        <li data-occcode="" data-occlevel="" class="level03">第三极</li>'+
+                     '                        <li data-occcode="" data-occlevel="" class="level03">第三极</li>'+
                      '                    </ul>'+
                      '                    <ul>'+
                      '                        <h2 class="level02">第二级职业</h2>'+
@@ -302,9 +304,9 @@ $(document).ready(function() {
 		});
 		$(".level03").click(function(event) {
 			layer.closeAll();
-			$("#occ").val($(this).text());
+			_this.val($(this).text());
+			$(".occupationReadonly").val($(this).text());
 		});
-		
 
 		var myScroll;
 		function loaded() {

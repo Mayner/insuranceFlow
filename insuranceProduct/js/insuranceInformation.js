@@ -88,6 +88,7 @@ $(function () {
             $("#insuredName").siblings(".mySelf").val($("#policyName").val());
             $("#insuredCardType").siblings(".mySelf").val($("#cardType").find("option:selected").text());
             $("#insuredIdNo").siblings(".mySelf").val($("#idNo").val());
+            $(".occupationReadonly").val($(".appntOccupation").val());
             if ($("#checkbox").hasClass("checkBox")) {
                 $("#insuredCheckbox").parent().siblings(".mySelf").val($("#checkbox").parent().siblings("span").find("label").text());
             } else {
@@ -150,6 +151,7 @@ $(function () {
         if ($("#relation").find("option:selected").text() == "本人") {
             $(".insured .mySelf").show().siblings().hide();
             $(".insured .errorMsg").hide();
+            $(".occupationReadonly").val($(".appntOccupation").val());
         } else {
             $(".insured .mySelf").hide().siblings().show();
             if ($("#insuredCardType").find("option:selected").text() == "身份证") {
@@ -221,7 +223,7 @@ $(function () {
     //$("#occupation").on("change", function () {
     //    $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
     //});
-    $("#occ").on("click", function () {
+    $(".occ").on("click", function () {
         $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
     });
     //$("#bankArea").on("change", function () {
@@ -517,6 +519,15 @@ function checkAll() {
             flag = false;
         }
     }
+    //职业校验
+    if ($(".appntOccupation").length>0) {
+        if ($(".appntOccupation").val() == "") {
+            $(".appntOccupation").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
+            flag = false;
+        } else {
+            $(".appntOccupation").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+        }
+    }
 
 //被保人信息
     if ($("#switch").hasClass("turnOff")) {
@@ -562,6 +573,28 @@ function checkAll() {
                     }
                 }
             }
+
+            //局部修改开始-------------------------------------------------------------------------------------------------
+            /*//职业校验
+             if ($("#occupation").length>0) {
+             if ($("#occupation").find("option:selected").text() == "请选择") {
+             $("#occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
+             flag = false;
+             } else {
+             $("#occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+             }
+             }*/
+            //职业校验
+            if ($(".occupation").length>0) {
+                if ($(".occupation").val() == "") {
+                    $(".occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
+                    flag = false;
+                } else {
+                    $(".occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+                }
+            }
+            //局部修改结束-------------------------------------------------------------------------------------------------
+
         }
     }
     //身高校验
@@ -576,28 +609,6 @@ function checkAll() {
             flag = false;
         }
     }
-
-    //局部修改开始-------------------------------------------------------------------------------------------------
-    /*//职业校验
-    if ($("#occupation").length>0) {
-        if ($("#occupation").find("option:selected").text() == "请选择") {
-            $("#occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
-            flag = false;
-        } else {
-            $("#occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
-        }
-    }*/
-    //职业校验
-    if ($("#occ").length>0) {
-        if ($("#occ").val() == "") {
-            $("#occ").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
-            flag = false;
-        } else {
-            $("#occ").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
-        }
-    }
-    //局部修改结束-------------------------------------------------------------------------------------------------
-
     //续缴账户信息
     //开户所在地校验
     if ($("#bankArea").length>0) {
@@ -627,11 +638,11 @@ function checkAll() {
         }
     }
     //开户名校验
-    /*if ($("#accountName").length>0) {
+    if ($("#accountName").length>0) {
         if (!checkName($("#accountName"))) {
             flag = false;
         }
-    }*/
+    }
     //银行卡号校验
     if ($("#cardNo").length>0) {
         if (!checkCardNo($("#cardNo"))) {
