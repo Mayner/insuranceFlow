@@ -656,10 +656,12 @@ function checkAll() {
         }
     }
     //勾选阅读校验
-    if (!$("#whetherCheck").hasClass("checkBox")) {
-        $(".pop").show().find("span").html("请认真阅读并勾选同意此《授权》");
-        $(".mask").show();
-        flag = false;
+    if ($("#whetherCheck").length>0) {
+        if (!$("#whetherCheck").hasClass("checkBox")) {
+            $(".pop").show().find("span").html("请认真阅读并勾选同意此《授权》");
+            $(".mask").show();
+            flag = false;
+        }
     }
     if (!flag) return;
     return true;

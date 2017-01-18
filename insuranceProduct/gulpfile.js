@@ -52,7 +52,7 @@ gulp.task('concatminifyjs', function () {
 //压缩图片，压缩后的文件放入dist/images
 gulp.task('image', function () {
     return gulp.src('images/*.+(jpg|png|gif|svg|ico)')
-        .pipe(image())//压缩
+        .pipe(image()) //压缩
         .pipe(gulp.dest('dist/images'));//输出
 });
 //以下压缩图片不失真

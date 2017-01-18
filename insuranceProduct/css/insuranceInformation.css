@@ -146,10 +146,12 @@ select {
 	height: 1.2rem;
 	display: block;
 }
-.whetherRead {
+section.infoList:last-child {
+    margin-bottom: 3.575rem;
+}
+section.infoList:last-child .whetherRead {
     position: relative;
     margin-top: 1rem;
-    margin-bottom: 3.575rem;
 }
 .whetherRead span {
     padding-left: 1.6rem;
