@@ -51,13 +51,13 @@ gulp.task('concatminifyjs', function () {
 
 //压缩图片，压缩后的文件放入dist/images
 gulp.task('image', function () {
-    gulp.src('images/*.+(jpg|png|gif|svg|ico)')
+    return gulp.src('images/*.+(jpg|png|gif|svg|ico)')
         .pipe(image())//压缩
         .pipe(gulp.dest('dist/images'));//输出
 });
 //以下压缩图片不失真
 gulp.task('imagemin', function () {
-    gulp.src('images/*.+(jpg|png|gif|svg|ico)')
+    return gulp.src('images/*.+(jpg|png|gif|svg|ico)')
         .pipe(imagemin())//压缩
         .pipe(gulp.dest('dist/images'));//输出
 });
@@ -106,7 +106,7 @@ gulp.task('testjspmin', function () {
 
 //执行压缩前，先删除dest文件夹里的内容
 gulp.task('clean', function () {
-    del.sync(['dist/*'])
+    return del.sync(['dist/*'])
 });
 
 //编译less到css
