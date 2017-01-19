@@ -212,6 +212,12 @@ input.tmp {
     font-size: 0.6rem;
     text-align: right;
 }
+.occ, .occupationReadonly {
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
 /* loading动画 */
 .loading{
     height: 100%;

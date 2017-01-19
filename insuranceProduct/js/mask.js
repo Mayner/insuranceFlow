@@ -220,12 +220,12 @@ $(document).ready(function() {
                      '            </div>'+
                      '            <div class="occCon">'+
                      '                <div class="occLevel">'+
-                     '                    <p class="level01">第一级职业</p>'+
+                     '                    <p class="level01">第一级职业第一级职业第一级职业第一级职业第一级职业第一级职业第一级职业第一级职业</p>'+
                      '                    <i></i>'+
                      '                    <ul>'+
-                     '                        <h2 class="level02">第二级职业</h2>'+
+                     '                        <h2 class="level02">第二级职业第二级职业第二级职业第二级职业第二级职业第二级职业第二级职业</h2>'+
                      '                        <i></i>'+
-                     '                        <li data-occcode="" data-occlevel="" class="level03">第三级职业</li>'+
+                     '                        <li data-occcode="" data-occlevel="" class="level03">第三级职业第三级职业第三级职业第三级职业第三级职业第三级职业第三级职业第三级职业</li>'+
                      '                        <li data-occcode="" data-occlevel="" class="level03">第三级职业</li>'+
                      '                        <li data-occcode="" data-occlevel="" class="level03">第三级职业</li>'+
                      '                    </ul>'+
