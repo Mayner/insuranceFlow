@@ -73,6 +73,22 @@
             // 证件有效期
             $("#idDate").scroller('destroy').scroller($.extend({preset : 'date'}, dateObj));
             $("#insuredIdDate").scroller('destroy').scroller($.extend({preset : 'date'}, dateObj));
+
+            var startDateObj = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'bottom', //显示方式
+                rtl:true,
+                mode: 'scroller', //日期选择模式
+                lang:'zh',
+                dateFormat: 'yyyy-mm-dd',
+                dateOrder: 'ddmmyy',
+                startYear:currYear - 80, //开始年份
+                endYear:currYear + 30, //结束年份
+                minDate: addDay(0)
+            };
+            // 起保日期
+            $("#startTime").val(startDateObj.minDate.toJSON().substr(0,10));
+            $("#startTime").scroller('destroy').scroller($.extend({preset : 'date'}, startDateObj));
         });
     </script>
 </head>
@@ -85,6 +101,21 @@
             <input type = "hidden" class = "personInfo" id= "productNo" name = "orderProduct.productCode" value = "${productNo}">
             <input type = "hidden" class = "personInfo" id= "memberId" name = "order.memberId" value = "${memberId}">
             <input type = "hidden" class = "personInfo" id= "channelCode" name = "order.channelCode" value = "${channelCode}">
+            <!--产品投保要素-->
+            <section class="infoList">
+                <p class="ml">产品投保要素</p>
+                <div class="infoSec pl pr bgColor borTop1 borBot1">
+                    <dl class="clearfix infoDl borBot1 dlSec">
+                        <dt class="w35 l-float">起保日期</dt>
+                        <dd class="w65 l-float txtR hasArrow">
+                            <span>
+                                <input type="text" class="textfield txtR personInfo birthdayChoose" readonly id="startTime" name = "applicant.appntBirthday" placeholder="请选择">
+                            </span>
+                        </dd>
+                        <span class="errorMsg"></span>
+                    </dl>
+                </div>
+            </section>
             <!--投保人信息-->
             <section class="infoList">
                 <p class="ml">投保人信息</p>
