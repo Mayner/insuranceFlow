@@ -257,7 +257,7 @@ $(function () {
     $("#policyName").on("blur", function () {
         checkName($(this));
         if (checkName($(this))) {
-            $("#accountName").val($(this).val());
+            $("#accountName").val($(this).val()).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
         } else {
             $("#accountName").val("");
         }
@@ -354,9 +354,9 @@ $(function () {
     });
     /***************************续缴账户信息校验**************************/
         //开户名校验
-    /*$("#accountName").on("blur", function () {
+    $("#accountName").on("blur", function () {
         checkName($(this));
-    });*/
+    });
     //银行卡号校验
     $("#cardNo").on("blur", function () {
         checkCardNo($(this));
@@ -607,6 +607,15 @@ function checkAll() {
     if ($("#weight").length>0) {
         if (!checkWeight($("#weight"))) {
             flag = false;
+        }
+    }
+    //职业校验
+    if ($(".occupationOutside").length>0) {
+        if ($(".occupationOutside").val() == "") {
+            $(".occupationOutside").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
+            flag = false;
+        } else {
+            $(".occupationOutside").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
         }
     }
     //续缴账户信息
