@@ -9,6 +9,37 @@ $(function () {
             inputClass: 'tmp'
         }));
     });
+    $("select.appntOccupation").each(function () {
+        $(this).scroller('destroy').scroller($.extend({preset: 'select'}, {
+            theme: "android-ics light",
+            lang: "zh",
+            display: 'bottom',
+            rtl: true,
+            inputClass: 'tmp',
+            onSelect: function () {
+                if ($(this).find("option:selected").text() == "请选择") {
+                    $(".occupationReadonly").val("");
+                } else {
+                    $(".occupationReadonly").val($(this).find("option:selected").text());
+                    $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+                }
+            }
+        }));
+    });
+    $("select.occupation").each(function () {
+        $(this).scroller('destroy').scroller($.extend({preset: 'select'}, {
+            theme: "android-ics light",
+            lang: "zh",
+            display: 'bottom',
+            rtl: true,
+            inputClass: 'tmp',
+            onSelect: function () {
+                if ($(this).find("option:selected").text() != "请选择") {
+                    $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+                }
+            }
+        }));
+    });
     //地区
     getArea("appntArea");
     //改变银行发送数据
@@ -64,6 +95,7 @@ $(function () {
         $("input[type = radio]").siblings("#switch").removeClass("turnOff").addClass("turnOn");
         $(".insured").hide();
     }
+    $("#scrollTop>div>dl .occupationReadonly").hide();
     //投保人被保人证件有效期是否长期--切换
     $("input[type = checkbox]").each(function () {
         $(this).on("click", function () {
@@ -88,7 +120,9 @@ $(function () {
             $("#insuredName").siblings(".mySelf").val($("#policyName").val());
             $("#insuredCardType").siblings(".mySelf").val($("#cardType").find("option:selected").text());
             $("#insuredIdNo").siblings(".mySelf").val($("#idNo").val());
-            $(".occupationReadonly").val($(".appntOccupation").val());
+            if ($(".appntOccupation").val() != "请选择") {
+                $(".occupationReadonly").val($(".appntOccupation").val());
+            }
             if ($("#checkbox").hasClass("checkBox")) {
                 $("#insuredCheckbox").parent().siblings(".mySelf").val($("#checkbox").parent().siblings("span").find("label").text());
             } else {
@@ -151,7 +185,9 @@ $(function () {
         if ($("#relation").find("option:selected").text() == "本人") {
             $(".insured .mySelf").show().siblings().hide();
             $(".insured .errorMsg").hide();
-            $(".occupationReadonly").val($(".appntOccupation").val());
+            if ($(".appntOccupation").val() != "请选择") {
+                $(".occupationReadonly").val($(".appntOccupation").val());
+            }
         } else {
             $(".insured .mySelf").hide().siblings().show();
             if ($("#insuredCardType").find("option:selected").text() == "身份证") {
@@ -521,11 +557,20 @@ function checkAll() {
     }
     //职业校验
     if ($(".appntOccupation").length>0) {
-        if ($(".appntOccupation").val() == "") {
-            $(".appntOccupation").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
-            flag = false;
-        } else {
-            $(".appntOccupation").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+        if ($(".appntOccupation")[0].tagName == "INPUT") {
+            if ($(".appntOccupation").val() == "") {
+                $(".appntOccupation").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
+                flag = false;
+            } else {
+                $(".appntOccupation").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+            }
+        } else if ($(".appntOccupation")[0].tagName == "SELECT") {
+        if ($(".appntOccupation").find("option:selected").text() == "请选择") {
+                $(".appntOccupation").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
+                flag = false;
+            } else {
+                $(".appntOccupation").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+            }
         }
     }
 
@@ -586,11 +631,20 @@ function checkAll() {
              }*/
             //职业校验
             if ($(".occupation").length>0) {
-                if ($(".occupation").val() == "") {
-                    $(".occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
-                    flag = false;
-                } else {
-                    $(".occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+                if ($(".occupation")[0].tagName == "INPUT") {
+                    if ($(".occupation").val() == "") {
+                        $(".occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
+                        flag = false;
+                    } else {
+                        $(".occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+                    }
+                } else if ($(".occupation")[0].tagName == "SELECT") {
+                    if ($(".occupation").find("option:selected").text() == "请选择") {
+                        $(".occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
+                        flag = false;
+                    } else {
+                        $(".occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+                    }
                 }
             }
             //局部修改结束-------------------------------------------------------------------------------------------------
@@ -610,12 +664,21 @@ function checkAll() {
         }
     }
     //职业校验
-    if ($(".occupationOutside").length>0) {
-        if ($(".occupationOutside").val() == "") {
-            $(".occupationOutside").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
-            flag = false;
-        } else {
-            $(".occupationOutside").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+    if ($("#scrollTop>div>dl .occupation").length>0) {
+        if ($("#scrollTop>div>dl .occupation")[0].tagName == "INPUT") {
+            if ($("#scrollTop>div>dl .occupation").val() == "") {
+                $("#scrollTop>div>dl .occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
+                flag = false;
+            } else {
+                $("#scrollTop>div>dl .occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+            }
+        } else if ($("#scrollTop>div>dl .occupation")[0].tagName == "SELECT") {
+            if ($("#scrollTop>div>dl .occupation").find("option:selected").text() == "请选择") {
+                $("#scrollTop>div>dl .occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
+                flag = false;
+            } else {
+                $("#scrollTop>div>dl .occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+            }
         }
     }
     //续缴账户信息
