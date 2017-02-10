@@ -42,6 +42,8 @@ $(function () {
     });
     //地区
     getArea("appntArea");
+    getArea("insuredArea");
+    getArea("propertyArea");
     //改变银行发送数据
     $("#accountBank").change(function(){
         $("#bankArea").val("");
@@ -120,8 +122,14 @@ $(function () {
             $("#insuredName").siblings(".mySelf").val($("#policyName").val());
             $("#insuredCardType").siblings(".mySelf").val($("#cardType").find("option:selected").text());
             $("#insuredIdNo").siblings(".mySelf").val($("#idNo").val());
-            if ($(".appntOccupation").val() != "请选择") {
-                $(".occupationReadonly").val($(".appntOccupation").val());
+            if ($(".appntOccupation")[0].tagName == "INPUT"){
+                if ($(".appntOccupation").val() != "请选择") {
+                    $(".occupationReadonly").val($(".appntOccupation").val());
+                }
+            } else if ($(".appntOccupation")[0].tagName == "SELECT") {
+                if ($(".appntOccupation").find("option:selected").text() != "请选择") {
+                    $(".occupationReadonly").val($(".appntOccupation").find("option:selected").text());
+                }
             }
             if ($("#checkbox").hasClass("checkBox")) {
                 $("#insuredCheckbox").parent().siblings(".mySelf").val($("#checkbox").parent().siblings("span").find("label").text());
@@ -185,8 +193,14 @@ $(function () {
         if ($("#relation").find("option:selected").text() == "本人") {
             $(".insured .mySelf").show().siblings().hide();
             $(".insured .errorMsg").hide();
-            if ($(".appntOccupation").val() != "请选择") {
-                $(".occupationReadonly").val($(".appntOccupation").val());
+            if ($(".appntOccupation")[0].tagName == "INPUT"){
+                if ($(".appntOccupation").val() != "请选择") {
+                    $(".occupationReadonly").val($(".appntOccupation").val());
+                }
+            } else if ($(".appntOccupation")[0].tagName == "SELECT") {
+                if ($(".appntOccupation").find("option:selected").text() != "请选择") {
+                    $(".occupationReadonly").val($(".appntOccupation").find("option:selected").text());
+                }
             }
         } else {
             $(".insured .mySelf").hide().siblings().show();
