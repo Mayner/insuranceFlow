@@ -125,13 +125,15 @@ $(function () {
             $("#insuredArea").siblings(".mySelf").val($("#appntArea").val());
             $("#insuredAddress").siblings(".mySelf").val($("#address").val());
             $("#insuredZipCode").siblings(".mySelf").val($("#postalCode").val());
-            if ($(".appntOccupation")[0].tagName == "INPUT"){
-                if ($(".appntOccupation").val() != "请选择") {
-                    $(".occupationReadonly").val($(".appntOccupation").val());
-                }
-            } else if ($(".appntOccupation")[0].tagName == "SELECT") {
-                if ($(".appntOccupation").find("option:selected").text() != "请选择") {
-                    $(".occupationReadonly").val($(".appntOccupation").find("option:selected").text());
+            if ($(".appntOccupation").length > 0) {
+                if ($(".appntOccupation")[0].tagName == "INPUT"){
+                    if ($(".appntOccupation").val() != "请选择") {
+                        $(".occupationReadonly").val($(".appntOccupation").val());
+                    }
+                } else if ($(".appntOccupation")[0].tagName == "SELECT") {
+                    if ($(".appntOccupation").find("option:selected").text() != "请选择") {
+                        $(".occupationReadonly").val($(".appntOccupation").find("option:selected").text());
+                    }
                 }
             }
             if ($("#checkbox").hasClass("checkBox")) {
@@ -196,13 +198,15 @@ $(function () {
         if ($("#relation").find("option:selected").text() == "本人") {
             $(".insured .mySelf").show().siblings().hide();
             $(".insured .errorMsg").hide();
-            if ($(".appntOccupation")[0].tagName == "INPUT"){
-                if ($(".appntOccupation").val() != "请选择") {
-                    $(".occupationReadonly").val($(".appntOccupation").val());
-                }
-            } else if ($(".appntOccupation")[0].tagName == "SELECT") {
-                if ($(".appntOccupation").find("option:selected").text() != "请选择") {
-                    $(".occupationReadonly").val($(".appntOccupation").find("option:selected").text());
+            if ($(".appntOccupation").length > 0) {
+                if ($(".appntOccupation")[0].tagName == "INPUT"){
+                    if ($(".appntOccupation").val() != "请选择") {
+                        $(".occupationReadonly").val($(".appntOccupation").val());
+                    }
+                } else if ($(".appntOccupation")[0].tagName == "SELECT") {
+                    if ($(".appntOccupation").find("option:selected").text() != "请选择") {
+                        $(".occupationReadonly").val($(".appntOccupation").find("option:selected").text());
+                    }
                 }
             }
         } else {
@@ -444,7 +448,7 @@ $(function () {
     	calPrice();
     });
     $("#idNo").change(function(){
-    	console.log($("#cardType").find("option:selected").text(),$("#insuredName").val());
+    	//console.log($("#cardType").find("option:selected").text(),$("#insuredName").val());
     	if($("#cardType").find("option:selected").text() == "身份证" && ($("#isSelf").val() == 1 || $("#relation").find("option:selected").text() == "本人")){
     		checkID($(this));
             if (checkID($(this))) {
