@@ -351,6 +351,39 @@
                             </dd>
                             <span class="errorMsg"></span>
                         </dl>
+
+                        <!--新增开始-->
+                        <dl class="clearfix infoDl borBot1 dlSec">
+                            <dt class="w35 l-float">通讯地址</dt>
+                            <dd class="w65 l-float txtR hasArrow">
+                                <input type="hidden" name = "" id ="" value="2" />
+                                <input type="hidden" class="personInfo" name = "insuredList[0].insuredProvince" value="" />
+                                <input type="hidden" class="personInfo" name = "insuredList[0].insuredCity" value="" />
+                                <input type="hidden" class="personInfo" name = "insuredList[0].insuredCounty" value="" />
+                                <input type="text" class="chosen txtR pr" readonly placeholder="请选择" id = "insuredArea" value="">
+                                <i class="arrow"></i>
+                                <input class="textfield txtR mySelf" readonly>
+                            </dd>
+                            <span class="errorMsg"></span>
+                        </dl>
+                        <dl class="clearfix infoDl borBot1 dlSec">
+                            <dt class="w35 l-float">详细地址</dt>
+                            <dd class="w65 l-float txtR">
+                                <input type="text" class="textfield txtR personInfo" id="insuredAddress" name = "insuredList[0].insuredAddress" placeholder="请具体至门牌号">
+                                <input class="textfield txtR mySelf" readonly>
+                            </dd>
+                            <span class="errorMsg"></span>
+                        </dl>
+                        <dl class="clearfix infoDl borBot1 dlSec">
+                            <dt class="w35 l-float">邮政编码</dt>
+                            <dd class="w65 l-float txtR">
+                                <input type="number" class="textfield txtR personInfo" id="insuredZipCode" name = "insuredList[0].insuredZipCode" placeholder="请输入邮编">
+                                <input class="textfield txtR mySelf" readonly>
+                            </dd>
+                            <span class="errorMsg"></span>
+                        </dl>
+                        <!--新增结束-->
+
                     </div>
                     <dl class="clearfix infoDl borBot1 dlSec">
                         <dt class="w40 l-float">身高<span class="space"></span>(CM)</dt>
@@ -384,7 +417,7 @@
                         <span class="errorMsg"></span>
                     </dl>-->
 
-                    <!--新增-->
+                    <!--新增开始-->
                     <!--<dl class="clearfix infoDl borBot1 dlSec">-->
                         <!--<dt class="w35 l-float">通讯地址</dt>-->
                         <!--<dd class="w65 l-float txtR hasArrow">-->
@@ -415,20 +448,21 @@
                         <!--<dt class="w35 l-float">社保情况</dt>-->
                         <!--<dd class="w65 l-float txtR hasArrow">-->
                             <!--<select id="insuredSocialSecurity" name = "insuredList[0].insuredSocialSecurity" class="cardType txtR personInfo" >-->
-                                <!--<c:forEach var="socialSecurit" items="${socialSecurityList}">-->
+                                <!--&lt;!&ndash;<c:forEach var="socialSecurit" items="${socialSecurityList}">&ndash;&gt;-->
+                                    <!--<option value="" >请选择</option>-->
                                     <!--<option value="${socialSecurit.codeValue}" >${socialSecurit.codeName }</option>-->
-                                <!--</c:forEach>-->
+                                <!--&lt;!&ndash;</c:forEach>&ndash;&gt;-->
                             <!--</select>-->
                             <!--<i class="arrow"></i>-->
-                            <!--<input class="textfield txtR mySelf" readonly>-->
                         <!--</dd>-->
                         <!--<span class="errorMsg"></span>-->
                     <!--</dl>-->
+                    <!--新增结束-->
                 </div>
             </section>
 
             <!--新增房屋信息-->
-            <!--<section class="infoList">
+            <section class="infoList">
                 <p class="ml">房屋信息</p>
                 <div class="infoSec pl pr bgColor borTop1 borBot1">
                     <dl class="clearfix infoDl borBot1 dlSec">
@@ -451,7 +485,7 @@
                         <span class="errorMsg"></span>
                     </dl>
                 </div>
-            </section>-->
+            </section>
             <!--保险信息-->
             <section class="infoList">
                 <p class="ml">保险信息</p>

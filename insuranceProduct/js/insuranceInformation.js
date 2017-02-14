@@ -122,6 +122,9 @@ $(function () {
             $("#insuredName").siblings(".mySelf").val($("#policyName").val());
             $("#insuredCardType").siblings(".mySelf").val($("#cardType").find("option:selected").text());
             $("#insuredIdNo").siblings(".mySelf").val($("#idNo").val());
+            $("#insuredArea").siblings(".mySelf").val($("#appntArea").val());
+            $("#insuredAddress").siblings(".mySelf").val($("#address").val());
+            $("#insuredZipCode").siblings(".mySelf").val($("#postalCode").val());
             if ($(".appntOccupation")[0].tagName == "INPUT"){
                 if ($(".appntOccupation").val() != "请选择") {
                     $(".occupationReadonly").val($(".appntOccupation").val());
@@ -270,6 +273,12 @@ $(function () {
     $("#appntArea").on("touchend", function () {
         $("#appntArea").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
     });
+    $("#insuredArea").on("touchend", function () {
+        $("#insuredArea").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+    });
+    $("#propertyArea").on("touchend", function () {
+        $("#propertyArea").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+    });
     //$("#occupation").on("change", function () {
     //    $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
     //});
@@ -284,6 +293,9 @@ $(function () {
     });
     //局部修改结束------------------------------------------------------------------------------------------------
 
+    $("#insuredSocialSecurity").on("change", function () {
+        $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+    });
     $("#accountBank").on("change", function () {
         $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
     });
@@ -358,10 +370,12 @@ $(function () {
     //详细地址校验
     $("#address").on("blur", function () {
         checkAddress($(this));
+        $("#insuredAddress").siblings(".mySelf").val($(this).val());
     });
     //邮政编码校验
     $("#postalCode").on("blur", function () {
         checkPostalCode($(this));
+        $("#insuredZipCode").siblings(".mySelf").val($(this).val());
     });
 
     /***************************被保人信息校验**************************/
@@ -401,6 +415,14 @@ $(function () {
     //体重校验
     $("#weight").on("blur", function () {
         checkWeight($(this));
+    });
+    //详细地址校验
+    $("#insuredAddress").on("blur", function () {
+        checkAddress($(this));
+    });
+    //邮政编码校验
+    $("#insuredZipCode").on("blur", function () {
+        checkPostalCode($(this));
     });
     /***************************续缴账户信息校验**************************/
         //开户名校验
@@ -470,7 +492,10 @@ $(function () {
     		calPrice();
     	}
     });
-
+    //房屋信息校验
+    $("#propertyAddress").on("blur", function () {
+        checkAddress($(this));
+    });
     //发送数据
     $("#sureToSave").click(function() {
     	if (!checkAll()) return;
@@ -663,6 +688,27 @@ function checkAll() {
             }
             //局部修改结束-------------------------------------------------------------------------------------------------
 
+            //通讯地址校验
+            if ($("#insuredArea").length>0) {
+                if ($("#insuredArea").val() == "") {
+                    $("#insuredArea").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择通讯地址！");
+                    flag = false;
+                } else {
+                    $("#insuredArea").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+                }
+            }
+            //详细地址校验
+            if ($("#insuredAddress").length>0) {
+                if (!checkAddress($("#insuredAddress"))) {
+                    flag = false;
+                }
+            }
+            //邮政编码校验
+            if ($("#insuredZipCode").length>0) {
+                if (!checkPostalCode($("#insuredZipCode"))) {
+                    flag = false;
+                }
+            }
         }
     }
     //身高校验
@@ -693,6 +739,53 @@ function checkAll() {
             } else {
                 $("#scrollTop>div>dl .occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
             }
+        }
+    }
+
+    //通讯地址校验
+    if ($("#scrollTop>div>dl #insuredArea").length>0) {
+        if ($("#scrollTop>div>dl #insuredArea").val() == "") {
+            $("#scrollTop>div>dl #insuredArea").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择通讯地址！");
+            flag = false;
+        } else {
+            $("#scrollTop>div>dl #insuredArea").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+        }
+    }
+    //详细地址校验
+    if ($("#scrollTop>div>dl #insuredAddress").length>0) {
+        if (!checkAddress($("#scrollTop>div>dl #insuredAddress"))) {
+            flag = false;
+        }
+    }
+    //邮政编码校验
+    if ($("#scrollTop>div>dl #insuredZipCode").length>0) {
+        if (!checkPostalCode($("#scrollTop>div>dl #insuredZipCode"))) {
+            flag = false;
+        }
+    }
+    //社保情况校验
+    if ($("#insuredSocialSecurity").length>0) {
+        if ($("#insuredSocialSecurity").find("option:selected").text() == "请选择") {
+            $("#insuredSocialSecurity").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择开户行！");
+            flag = false;
+        } else {
+            $("#insuredSocialSecurity").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+        }
+    }
+//房屋信息
+    //坐落地址校验
+    if ($("#propertyArea").length>0) {
+        if ($("#propertyArea").val() == "") {
+            $("#propertyArea").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择通讯地址！");
+            flag = false;
+        } else {
+            $("#propertyArea").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+        }
+    }
+    //详细地址校验
+    if ($("#propertyAddress").length>0) {
+        if (!checkAddress($("#propertyAddress"))) {
+            flag = false;
         }
     }
     //续缴账户信息
@@ -1014,6 +1107,7 @@ function getArea(id){
                         $("#"+id).val(selectOneObj.value + ' ' + selectTwoObj.value);
                         $this.siblings("input")[1].value = selectOneObj.codevalue;
                         $this.siblings("input")[2].value = selectTwoObj.codevalue;
+                        $("#insuredArea").siblings(".mySelf").val($("#appntArea").val());
                     }
                 });
         }else{
@@ -1037,6 +1131,7 @@ function getArea(id){
                         $this.siblings("input")[1].value = selectOneObj.codevalue;
                         $this.siblings("input")[2].value = selectTwoObj.codevalue;
                         $this.siblings("input")[3].value = selectThreeObj.codevalue;
+                        $("#insuredArea").siblings(".mySelf").val($("#appntArea").val());
                     }
                 });
         }

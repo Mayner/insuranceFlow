@@ -171,6 +171,7 @@ section.infoList:last-child .whetherRead {
 .insureBtn {
     background-color: #D43333;
     color: #fff;
+    height: 2.3rem;
 }
 .fixedBox {
     -webkit-box-sizing: border-box;
