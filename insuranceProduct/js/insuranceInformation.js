@@ -6,8 +6,22 @@ $(function () {
             lang: "zh",
             display: 'bottom',
             rtl: true,
-            inputClass: 'tmp'
+            inputClass: 'tmp',
+            onSelect: function () {
+                if ($(this).find("option:selected").text()=="请选择"){
+                    $(this).siblings(".tmp").css("color","#999999");
+                }else{
+                    $(this).siblings(".tmp").css("color","#222222");
+                }
+            }
         }));
+    });
+    $(".tmp").each(function(){
+        if($(this).val()=="请选择"){
+            $(this).css("color","#999999");
+        }else{
+            $(this).css("color","#222222");
+        }
     });
     $("select.appntOccupation").each(function () {
         $(this).scroller('destroy').scroller($.extend({preset: 'select'}, {

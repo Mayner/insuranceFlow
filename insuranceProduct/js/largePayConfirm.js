@@ -9,8 +9,22 @@ $(function () {
             lang: "zh",
             display: 'bottom',
             rtl: true,
-            inputClass: 'tmp'
+            inputClass: 'tmp',
+            onSelect: function () {
+                if ($(this).find("option:selected").text()=="请选择"){
+                    $(this).siblings(".tmp").css("color","#999999");
+                }else{
+                    $(this).siblings(".tmp").css("color","#222222");
+                }
+            }
         }));
+    });
+    $(".tmp").each(function(){
+        if($(this).val()=="请选择"){
+            $(this).css("color","#999999");
+        }else{
+            $(this).css("color","#222222");
+        }
     });
 
     //改变银行发送数据
@@ -46,7 +60,7 @@ $(function () {
         $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
     });
     //改变开户所在地的下拉状态，错误提示信息消失
-    $("#bankArea").on("change", function () {
+    $("#bankArea").on("click", function () {
         $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
     });
 
