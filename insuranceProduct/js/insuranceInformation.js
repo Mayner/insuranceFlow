@@ -112,6 +112,7 @@ $(function () {
         $(".insured").hide();
     }
     $("#scrollTop>div>dl .occupationReadonly").hide();
+    $("#scrollTop>div>dl .mySelf").hide();
     //投保人被保人证件有效期是否长期--切换
     $("input[type = checkbox]").each(function () {
         $(this).on("click", function () {
