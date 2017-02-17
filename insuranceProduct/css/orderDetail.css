@@ -4,81 +4,17 @@ html,body {
     color: #222222;
     width: 100%;
 }
-.modify {
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index:1000;
-}
-.header>h3 {
-	font-size: 0.75rem;
-    font-weight: 400;
-    display: inline-block;
-    margin-top: 0.6rem;
-    margin-bottom: 0.2rem;
-}
-.header>a {
-    color: #D43333;
-    line-height: 2.2rem;
-    display: inline-block;
-    font-size: 0.6rem;
-}
-.insureDetails {
-    word-wrap: break-word;
-    font-size: 0.625rem;
-    line-height: 0.9rem;
-}
-.insureDetails:last-child {
-    border-bottom: 0.025rem solid #e2e2e2;
-    padding-bottom: 0.75rem;
-}
-.orderFixed {
-    position: fixed;
-    left: 0;
-    top: 0;
-}
-.paddingTop {
-    padding-top: 2.2rem;
-}
-.order {
-    line-height: 2.2rem;
-    color: #D43333;
-    font-size: 0.6rem;
-    width: 100%;
-}
-.order>span {
-    position: relative;
-    padding-right: 0.5rem;
-}
-.order>span::after {
-    content: '';
-    width: 0.625rem;
-    height: 0.625rem;
-    display: inline-block;
-    position: absolute;
-}
-.order>.hideOrder::after {
-    top: 0.05rem;
-    right: -0.5rem;
-    background: url(../images/hideOrder.png) no-repeat center;
-    -webkit-background-size: 100%;
-    background-size: 100%;
-}
-.order>.showOrder::after {
-    top: 0.05rem;
-    right: -0.5rem;
-    background: url(../images/showOrder.png) no-repeat center;
-    -webkit-background-size: 100%;
-    background-size: 100%;
-}
 .info {
-    display: none;
-    background-color: #fff;
+    background-color: #F2F2F2;
+    margin-top: 0.5rem;
+}
+section {
+    margin-bottom: 0.5rem;
 }
 .secTitle {
-    line-height: 1.25rem;
-    font-weight: bold;
+    line-height: 1.45rem;
     font-size: 0.65rem;
+    color: #d43333;
 }
 .orderDetails {
     word-wrap: break-word;
@@ -92,80 +28,33 @@ html,body {
 span.policyType {
     color: #222222;
 }
-.payTitle {
-    line-height: 1.65rem;
-    font-weight: bold;
-    font-size: 0.65rem;
-    background-color: #F2F2F2;
-}
-.choose {
-    position: relative;
-}
-.infoDl {
-    line-height: 2.2rem;
-    font-size: 0.75rem;
-}
-.checkBox {
-    width: 1.1rem;
-    height: 1.1rem;
-    display: inline-block;
-    background: url(../images/checked.png);
-    background-size: 100%;
-    -webkit-background-size:100%;
-    position: absolute;
-    top: 0.55rem;
-    right: 0;
-}
-.unCheckBox {
-    width: 1.1rem;
-    height: 1.1rem;
-    display: inline-block;
-    background: url(../images/unchecked.png);
-    background-size: 100%;
-    -webkit-background-size:100%;
-    position: absolute;
-    top: 0.55rem;
-    right: 0;
-}
-.whetherRead {
-    position: relative;
-    margin-top: 1rem;
-    margin-bottom: 4.575rem;
-}
-.whetherRead span {
-    padding-left: 1.6rem;
-    padding-right: 0.75rem;
-    font-size: 0.625rem;
-}
-.whetherRead span a {
-    color: #D43333;
-}
-.whetherCheck {
-    top: -0.075rem;
-    left: 0;
-}
-.insurePrice {
-    color: #D43333;
-    font-size: 0.925rem;
-}
-.insureBtn {
-    background-color: #D43333;
-    color: #fff;
-    height: 2.3rem;
-}
-.fixedBox {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    line-height: 2.2rem;
-    font-size: 0.8rem;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    z-index: 1000;
-}
-.headerRight, .orderRight {
+.orderRight {
     padding-left: 0.35rem;
+}
+.premium {
+    font-size: 0.65rem;
+    font-weight: bold;
+}
+.content {
+    font-size: 0.65rem;
+    color: #666666;
+    margin-top: 1rem;
+}
+.link {
+    font-size: 0.65rem;
+    color: #d43333;
+    display: block;
+}
+.btn {
+    display: block;
+    width: 10.0rem;
+    height: 2.0rem;
+    line-height: 2.0rem;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: #D43333;
+    margin: 1.5rem auto;
+    border-radius: 1rem;
 }
 /* loading动画 */
 .loading{
