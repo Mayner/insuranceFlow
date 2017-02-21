@@ -21,92 +21,43 @@
     <script src="../js/fastclick.js"></script>
     <script src="../js/runFastclick.js"></script>
     <script src="../js/orderDetail.js"></script>
-    <script src="../js/getUrlParam.js"></script>
 </head>
 <body>
     <article class="info">
         <!--保单信息-->
         <section class="pl pr pt pb bgColor">
             <p class="borBot1 secTitle">保单信息：</p>
-            <div class="orderDetails w100">
-                <dl>
-                    <span class="orderLeft">保险名称：</span><span class="orderRight">健康之家</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">保险期间：</span><span class="orderRight">至终身</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">投保额度：</span><span class="orderRight">20万</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">交费方式：</span><span class="orderRight">10年期</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">起保时间：</span><span class="orderRight">2016/12/0100:00:00</span>
-                </dl>
+            <div class="orderDetails w100" id="orderShowInfoList">
+                <!--<dl>-->
+                    <!--<span class="orderLeft">保险名称：</span><span class="orderRight">健康之家</span>-->
+                <!--</dl>-->
             </div>
         </section>
         <!--保障责任-->
         <section class="pl pr pt pb bgColor">
             <p class="borBot1 secTitle">保障责任：</p>
-            <div class="orderDetails w100">
-                <dl>
-                    <span class="orderLeft">保险名称：</span><span class="orderRight">健康之家</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">保险期间：</span><span class="orderRight">至终身</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">投保额度：</span><span class="orderRight">20万</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">交费方式：</span><span class="orderRight">10年期</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">起保时间：</span><span class="orderRight">起保时间起保时间起保时间起保时间起保时间起保时间起保时间起保时间起保时间起保时间起保时间</span>
-                </dl>
+            <div class="orderDetails w100" id="dutyShowInfoList">
+                <!--<dl>-->
+                    <!--<span class="orderLeft">保险名称：</span><span class="orderRight">健康之家</span>-->
+                <!--</dl>-->
             </div>
         </section>
         <!--投保人信息-->
         <section class="pl pr pt pb bgColor">
             <p class="borBot1 secTitle">投保人信息：</p>
-            <div class="orderDetails w100">
-                <dl>
-                    <span class="orderLeft">保险名称：</span><span class="orderRight">健康之家</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">保险期间：</span><span class="orderRight">至终身</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">投保额度：</span><span class="orderRight">20万</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">交费方式：</span><span class="orderRight">10年期</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">起保时间：</span><span class="orderRight">2016/12/0100:00:00</span>
-                </dl>
+            <div class="orderDetails w100" id="appntShowInfoList">
+                <!--<dl>-->
+                    <!--<span class="orderLeft">保险名称：</span><span class="orderRight">健康之家</span>-->
+                <!--</dl>-->
             </div>
         </section>
         <!--被保人信息-->
         <section class="pl pr pt pb bgColor">
             <p class="borBot1 secTitle">被保人信息：</p>
-            <div class="orderDetails w100">
-                <dl>
-                    <span class="orderLeft">保险名称：</span><span class="orderRight">健康之家</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">保险期间：</span><span class="orderRight">至终身</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">投保额度：</span><span class="orderRight">20万</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">交费方式：</span><span class="orderRight">10年期</span>
-                </dl>
-                <dl>
-                    <span class="orderLeft">起保时间：</span><span class="orderRight">2016/12/0100:00:00</span>
-                </dl>
+            <div class="orderDetails w100" id="insuredShowInfoList">
+                <!--<dl>-->
+                    <!--<span class="orderLeft">保险名称：</span><span class="orderRight">健康之家</span>-->
+                <!--</dl>-->
             </div>
         </section>
         <!--受益人信息-->
@@ -128,7 +79,7 @@
             </div>
         </section>
         <form action="" id="orderForm" method="post">
-            <input type="hidden" name="orderNo" value="12">
+            <input type="hidden" name="orderNo" id="orderNo">
         </form>
     </article>
     <!--尾部-->

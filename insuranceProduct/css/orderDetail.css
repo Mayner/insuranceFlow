@@ -44,6 +44,7 @@ span.policyType {
     font-size: 0.65rem;
     color: #d43333;
     display: block;
+    margin-bottom: 1.5rem;
 }
 .btn {
     display: block;
@@ -53,7 +54,7 @@ span.policyType {
     font-size: 0.9rem;
     color: #fff;
     background-color: #D43333;
-    margin: 1.5rem auto;
+    margin: 0 auto 1.5rem;
     border-radius: 1rem;
 }
 /* loading动画 */
