@@ -1,4 +1,11 @@
 $(function () {
+    if (checkPlatform() == 0) {
+        $(".WXPay").show();
+        $(".Alipay").hide();
+    } else if (checkPlatform() == 1) {
+        $(".WXPay").hide();
+        $(".Alipay").show();
+    }
     //显示隐藏订单详情
     $(".order").on("click", function () {
         if ($(this).find("span").hasClass("hideOrder")) {
@@ -33,16 +40,23 @@ $(function () {
         }
     });
     //支付方式选择
-    $("#creditCard").on("click", function () {
-        $("#depositCard").removeClass("checkBox").addClass("unCheckBox");
-        $(this).removeClass("unCheckBox").addClass("checkBox");
-        $(this).siblings("input").prop("checked",true);
+    $(".payMethod").each(function () {
+        $(this).on("click", function () {
+            $(this).find("i").removeClass("unCheckBox").addClass("checkBox");
+            $(this).siblings("dl").find("i").removeClass("checkBox").addClass("unCheckBox");
+            $(this).find("i").siblings("input").prop("checked",true);
+        })
     });
-    $("#depositCard").on("click", function () {
-        $("#creditCard").removeClass("checkBox").addClass("unCheckBox");
-        $(this).removeClass("unCheckBox").addClass("checkBox");
-        $(this).siblings("input").prop("checked",true);
-    });
+    //$("#creditCard").on("click", function () {
+    //    $("#depositCard").removeClass("checkBox").addClass("unCheckBox");
+    //    $(this).removeClass("unCheckBox").addClass("checkBox");
+    //    $(this).siblings("input").prop("checked",true);
+    //});
+    //$("#depositCard").on("click", function () {
+    //    $("#creditCard").removeClass("checkBox").addClass("unCheckBox");
+    //    $(this).removeClass("unCheckBox").addClass("checkBox");
+    //    $(this).siblings("input").prop("checked",true);
+    //});
     $("input[name='payType']").each(function(){
         if($(this).prop("checked")){
             $(this).siblings("i").removeClass("unCheckBox").addClass("checkBox");
@@ -84,4 +98,13 @@ $(function () {
 //历史回退
 function goBack() {
     window.history.back();
+}
+
+//判断是处于哪个平台浏览器
+function checkPlatform(){
+    if(/MicroMessenger/i.test(navigator.userAgent)){
+        return 0;//这是微信平台下浏览器
+    }else if(/AlipayClient/.test(navigator.userAgent)){
+        return 1;//这是支付宝平台下浏览器
+    }
 }

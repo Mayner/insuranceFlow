@@ -154,18 +154,32 @@
             <input type="hidden" name="orderNo" value="1234">
             <p class="pl borTop1 payTitle">支付方式</p>
             <div class="pl pr borTop1 borBot1 smallPay">
-                <dl class="clearfix infoDl borBot1 w100 creditCard">
+                <dl class="clearfix infoDl borBot1 w100 creditCard payMethod">
                     <dt class="w40 l-float">信用卡支付</dt>
                     <dd class="w60 r-float choose">
                         <i class="checkBox" id="creditCard"></i>
                         <input type="radio" checked name="payType" class="payType" value="2" style="display: none;">
                     </dd>
                 </dl>
-                <dl class="clearfix infoDl w100 depositCard">
+                <dl class="clearfix infoDl borBot1 w100 depositCard payMethod">
                     <dt class="w40 l-float">储蓄卡支付</dt>
                     <dd class="w60 r-float choose">
                         <i class="unCheckBox" id="depositCard"></i>
                         <input type="radio"  name="payType" class="payType" value="3" style="display: none;">
+                    </dd>
+                </dl>
+                <dl class="clearfix infoDl borBot1 w100 WXPay payMethod">
+                    <dt class="w40 l-float">微信支付</dt>
+                    <dd class="w60 r-float choose">
+                        <i class="unCheckBox" id="WXPay"></i>
+                        <input type="radio"  name="payType" class="payType" value="4" style="display: none;">
+                    </dd>
+                </dl>
+                <dl class="clearfix infoDl borBot1 w100 Alipay payMethod">
+                    <dt class="w40 l-float">支付宝支付</dt>
+                    <dd class="w60 r-float choose">
+                        <i class="unCheckBox" id="Alipay"></i>
+                        <input type="radio"  name="payType" class="payType" value="5" style="display: none;">
                     </dd>
                 </dl>
             </div>

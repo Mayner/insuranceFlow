@@ -167,6 +167,9 @@ span.policyType {
 .headerRight, .orderRight {
     padding-left: 0.35rem;
 }
+dl.payMethod:last-child {
+    border-bottom: 0 none;
+}
 /* loading动画 */
 .loading{
     height: 100%;
