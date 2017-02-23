@@ -6,12 +6,12 @@ $(function () {
         channelCode= getQueryString("channelCode"),
         orderNo= getQueryString("orderNo"),
         orderStatus= getQueryString("orderStatus");
-    productNo="210102001";
-    memberId = "187891";
-    channelCode="01";
-    orderNo = "D00DtI1rXo000000000305";
+    //productNo="210102001";
+    //memberId = "187891";
+    //channelCode="01";
+    //orderNo = "D00DtI1rXo000000000305";
     //orderStatus = "0";//全部
-    orderStatus = "1";//暂存
+    //orderStatus = "1";//暂存
     //orderStatus = "2";//待支付
     //orderStatus = "3";//已支付
     //orderStatus = "4";//订单过期
@@ -19,7 +19,7 @@ $(function () {
     //orderStatus = "6";//订单删除
     //orderStatus = "7";//待续保
     //orderStatus = "8";//已预约
-    //console.log(productNo, memberId, channelCode, orderNo, orderState);
+    //console.log(productNo, memberId, channelCode, orderNo, orderStatus);
     //var url = "http://10.10.116.170:21002/orderInfo/getOrderInfoDetail?memberId=187891&orderNo=D00DtI1rXo000000000305";
     sendRequest(path + "/orderInfo/getOrderInfoDetail",{memberId: memberId, orderNo: orderNo}, function (data) {
         if (data.code == "0") {
@@ -77,7 +77,7 @@ $(function () {
             }
             //点击再次投保按钮
             $("#insuredAgain").on("click", function () {
-                //$("#orderForm").submit();
+                $("#orderForm").submit();
                 $(".loading").show();
                 window.location.href = path + "/getProductPageInfo?productNo=" + productNo + "&memberId=" + memberId + "&channelCode=" + channelCode + "&orderNo=" + orderNo;
             });

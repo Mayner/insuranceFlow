@@ -1,4 +1,5 @@
 $(function () {
+    //判斷显示微信支付还是支付宝支付方式
     if (checkPlatform() == 0) {
         $(".WXPay").show();
         $(".Alipay").hide();
@@ -85,9 +86,17 @@ $(function () {
             $(".mask").show();
             return;
         }
-        //提交form表单
-        $("#payTypeForm").submit();
-        $(".loading").show();
+        if ($("#WXPay").siblings("input").prop("checked")) {
+            alert("微信支付");
+            WXPay();
+        } else if ($("#Alipay").siblings("input").prop("checked")) {
+            alert("支付宝支付");
+        } else {
+            //提交form表单
+            $("#payTypeForm").submit();
+            $(".loading").show();
+        }
+
     });
     //点击修改回退
     $(".modify").on("click", function () {
@@ -107,4 +116,36 @@ function checkPlatform(){
     }else if(/AlipayClient/.test(navigator.userAgent)){
         return 1;//这是支付宝平台下浏览器
     }
+}
+
+//微信接口配置
+wx.config({
+    debug: false,
+    appId: 'wxf8b4f85f3a794e77',
+    timestamp: 1486956852,
+    nonceStr: 'PByUsyEjhtNuQerP',
+    signature: 'f9c2f9f7fbdd2226b6a5d4c862b1685e6252107c',
+    jsApiList: [
+        // 所有要调用的 API 都要加到这个列表中
+        'checkJsApi',
+        'onMenuShareTimeline', //分享到朋友圈
+        'onMenuShareAppMessage', //分享给朋友
+        'chooseWXPay' //微信支付
+    ]
+});
+
+function WXPay() {
+    wx.ready(function () {
+        //发起一个微信支付请求
+        wx.chooseWXPay({
+            timeStamp: 1414723227,//支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+            nonceStr: 'noncestr',// 支付签名随机串，不长于 32 位
+            package: 'addition=action_id%3dgaby1234%26limit_pay%3d&bank_type=WX&body=innertest&fee_type=1&input_charset=GBK&notify_url=http%3A%2F%2F120.204.206.246%2Fcgi-bin%2Fmmsupport-bin%2Fnotifypay&out_trade_no=1414723227818375338&partner=1900000109&spbill_create_ip=127.0.0.1&total_fee=1&sign=432B647FE95C7BF73BCD177CEECBEF8D',// 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+            signType: 'MD5', // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+            paySign: 'bd5b1933cda6e9548862944836a9b52e8c9a2b69', // 支付签名
+            success: function (res) {
+                // 支付成功后的回调函数
+            }
+        });
+    });
 }
