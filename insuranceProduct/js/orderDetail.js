@@ -1,6 +1,6 @@
 $(function () {
-    //var path = "http://10.10.116.170:21002",//本地
-    var path = "http://10.219.10.72:21002",//测试环境
+    var path = "http://10.10.116.170:21002",//本地
+    //var path = "http://10.219.10.72:21002",//测试环境
         productNo= getQueryString("productNo"),
         memberId = getQueryString("memberId"),
         channelCode= getQueryString("channelCode"),
@@ -35,6 +35,7 @@ $(function () {
             //渲染保费
             $(".premium .m-num").text(totalAmount);
             orderNo = dataObj.orderNo;
+            //订单号
             $("#orderNo").val(orderNo);
 
             //渲染页面数据
@@ -77,7 +78,7 @@ $(function () {
             }
             //点击再次投保按钮
             $("#insuredAgain").on("click", function () {
-                $("#orderForm").submit();
+                //$("#orderForm").submit();
                 $(".loading").show();
                 window.location.href = path + "/getProductPageInfo?productNo=" + productNo + "&memberId=" + memberId + "&channelCode=" + channelCode + "&orderNo=" + orderNo;
             });

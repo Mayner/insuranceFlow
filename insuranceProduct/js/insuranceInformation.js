@@ -412,7 +412,7 @@ $(function () {
                 $(".insuredBirthdayReadonly").val(getBirthdayByIDCard($(this).val().trim()));
                 $("#insuredBirthday").val(getBirthdayByIDCard($(this).val().trim()));
                 $(".insuredSexReadonly").val(getSexByIDCard($(this).val().trim()) == "1" ? "男" : "女");
-                getSexByIDCard($(this).val().trim()) == "1" ? $("#sex").find("option").eq(0).prop("selected",true):$("#sex").find("option").eq(1).prop("selected",true);
+                getSexByIDCard($(this).val().trim()) == "1" ? $("#insuredSex").find("option").eq(0).prop("selected",true):$("#insuredSex").find("option").eq(1).prop("selected",true);
             } else {
                 //身份证错误时清空生日和性别
                 $(".insuredBirthdayReadonly").val("");
@@ -490,7 +490,7 @@ $(function () {
                 $(".insuredBirthdayReadonly").val(getBirthdayByIDCard($(this).val().trim()));
                 $("#insuredBirthday").val(getBirthdayByIDCard($(this).val().trim()));
                 $(".insuredSexReadonly").val(getSexByIDCard($(this).val().trim()) == "1" ? "男" : "女");
-                getSexByIDCard($(this).val().trim()) == "1" ? $("#sex").find("option").eq(0).prop("selected",true):$("#sex").find("option").eq(1).prop("selected",true);
+                getSexByIDCard($(this).val().trim()) == "1" ? $("#insuredSex").find("option").eq(0).prop("selected",true):$("#insuredSex").find("option").eq(1).prop("selected",true);
             } else {
                 //身份证错误时清空生日和性别
                 $(".insuredBirthdayReadonly").val("");
