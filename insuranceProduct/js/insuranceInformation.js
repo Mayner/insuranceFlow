@@ -286,27 +286,18 @@ $(function () {
     });
 
     //局部修改开始-------------------------------------------------------------------------------------------------
-    //$("#appntArea").on("change", function () {
-    //    $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
-    //});
     $("#appntArea").on("touchend", function () {
-        $("#appntArea").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+        $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
     });
     $("#insuredArea").on("touchend", function () {
-        $("#insuredArea").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+        $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
     });
     $("#propertyArea").on("touchend", function () {
-        $("#propertyArea").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+        $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
     });
-    //$("#occupation").on("change", function () {
-    //    $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
-    //});
     $(".occ").on("click", function () {
         $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
     });
-    //$("#bankArea").on("change", function () {
-    //    $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
-    //});
     $("#bankArea").on("click", function () {
         $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
     });
@@ -678,15 +669,6 @@ function checkAll() {
             }
 
             //局部修改开始-------------------------------------------------------------------------------------------------
-            /*//职业校验
-             if ($("#occupation").length>0) {
-             if ($("#occupation").find("option:selected").text() == "请选择") {
-             $("#occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("请选择职业！");
-             flag = false;
-             } else {
-             $("#occupation").parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
-             }
-             }*/
             //职业校验
             if ($(".occupation").length>0) {
                 if ($(".occupation")[0].tagName == "INPUT") {
