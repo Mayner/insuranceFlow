@@ -954,7 +954,7 @@ function calPrice(){
     	var obj = JSON.parse(data);
     	console.log(obj);
     	if(obj.code == 0){
-    		$("#insurePrice").text(obj.data.totlePrem);
+    		$("#insurePrice").val(obj.data.totlePrem);
     	}else{
     		if(obj.data.totlePrem != ""){
             	$(".pop").show();
