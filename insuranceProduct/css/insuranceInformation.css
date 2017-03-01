@@ -126,6 +126,9 @@ select {
 }
 .only {
     font-size: 0.65rem;
+    overflow-x: scroll;
+    white-space: nowrap;
+    display: inline-block;
 }
 .infoList .infoSec .title {
     font-weight: 400;

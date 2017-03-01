@@ -104,7 +104,7 @@ function sendRequest(url, data, success, error) {
         data: data ? data : {},
         dataType: "json",
         beforeSend:function(){
-            $(".loading").show();
+
         },
         success: function (data) {
             if (success) {
@@ -117,7 +117,7 @@ function sendRequest(url, data, success, error) {
             }
         },
         complete:function(){
-            $(".loading").hide();
+
         }
     });
 }

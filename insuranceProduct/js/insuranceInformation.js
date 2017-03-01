@@ -894,7 +894,11 @@ function getData(){
         if(el.tagName == "SELECT"){
             oObj[el.name] = $(this).find("option:selected").val();
         }else if(el.tagName == "INPUT"){
-            oObj[el.name] = $(this).val();
+        	if(el.classList.toString().indexOf("occ") > -1){
+        		oObj[el.name] = $(this).data("occcode");
+        	}else{
+                oObj[el.name] = $(this).val();
+        	}
         }
     });
     var allData = $.extend(data, oObj);
