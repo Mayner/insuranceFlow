@@ -78,6 +78,12 @@ $(function () {
         $(".pop").hide();
         $(".mask").hide();
     });
+    $("#declareLink").on("click", function () {
+        $(".cover").show();
+    });
+    $(".declareBox:before").on("click", function () {
+        $(".cover").hide();
+    });
 
     //点击立即支付时校验是否勾选
     $(".insureBtn").on("click", function () {
@@ -119,20 +125,20 @@ function checkPlatform(){
 }
 
 //微信接口配置
-wx.config({
-    debug: false,
-    appId: 'wxf8b4f85f3a794e77',
-    timestamp: 1486956852,
-    nonceStr: 'PByUsyEjhtNuQerP',
-    signature: 'f9c2f9f7fbdd2226b6a5d4c862b1685e6252107c',
-    jsApiList: [
-        // 所有要调用的 API 都要加到这个列表中
-        'checkJsApi',
-        'onMenuShareTimeline', //分享到朋友圈
-        'onMenuShareAppMessage', //分享给朋友
-        'chooseWXPay' //微信支付
-    ]
-});
+//wx.config({
+//    debug: false,
+//    appId: 'wxf8b4f85f3a794e77',
+//    timestamp: 1486956852,
+//    nonceStr: 'PByUsyEjhtNuQerP',
+//    signature: 'f9c2f9f7fbdd2226b6a5d4c862b1685e6252107c',
+//    jsApiList: [
+//        // 所有要调用的 API 都要加到这个列表中
+//        'checkJsApi',
+//        'onMenuShareTimeline', //分享到朋友圈
+//        'onMenuShareAppMessage', //分享给朋友
+//        'chooseWXPay' //微信支付
+//    ]
+//});
 
 function WXPay() {
     wx.ready(function () {

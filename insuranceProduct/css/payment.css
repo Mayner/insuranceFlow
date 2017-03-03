@@ -328,3 +328,57 @@ dl.payMethod:last-child {
         transform: scale(1);
     }
 }
+.cover{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 20000;
+    display: none;
+}
+.declareBox{
+    background-color: #000;
+    margin: 15% 5%;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    height: 350px;
+    opacity: 0.9;
+    position: relative;
+}
+.declareBox .declareContent {
+    color: #fff;
+    height: 305px;
+}
+.declareBox .declareContent h2 {
+    font-size: 0.8rem;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.declareBox::before {
+    display: block;
+    content: '';
+    width: 30px;
+    height: 30px;
+    background: url(../images/close_icon.png) no-repeat;
+    background-size: 30px 30px;
+    float: right;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 102;
+    cursor: pointer;
+}
+.declareBox .declareText {
+    height: 270px;
+    width: 85%;
+    margin: 0 auto;
+    overflow-y: auto;
+}
+.declareBox .declareText p {
+    font-size: 0.625rem;
+    margin-bottom: 0.5rem;
+}
