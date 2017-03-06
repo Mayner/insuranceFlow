@@ -350,7 +350,7 @@ dl.payMethod:last-child {
 }
 .declareBox .declareContent {
     color: #fff;
-    height: 305px;
+    height: 350px;
 }
 .declareBox .declareContent h2 {
     font-size: 0.8rem;
@@ -358,14 +358,11 @@ dl.payMethod:last-child {
     line-height: 60px;
     text-align: center;
 }
-.declareBox::before {
-    display: block;
-    content: '';
+.declareBox .closeBtn {
     width: 30px;
     height: 30px;
     background: url(../images/close_icon.png) no-repeat;
     background-size: 30px 30px;
-    float: right;
     position: absolute;
     top: 15px;
     right: 15px;

@@ -79,10 +79,10 @@ $(function () {
         $(".mask").hide();
     });
     $("#declareLink").on("click", function () {
-        $(".cover").show();
+        $(".cover").fadeToggle();
     });
-    $(".declareBox:before").on("click", function () {
-        $(".cover").hide();
+    $(".declareBox .closeBtn").on("click", function () {
+        $(".cover").fadeToggle();
     });
 
     //点击立即支付时校验是否勾选
