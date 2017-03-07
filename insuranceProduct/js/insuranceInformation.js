@@ -54,6 +54,21 @@ $(function () {
             }
         }));
     });
+    //产品投保要素给责任信息赋值
+    if ($(".product select").length > 0) {
+        $(".product select").change(function () {
+            var classArr = $(this)[0].classList;
+            for (var i = 0; i < classArr.length; i++) {
+                if (classArr[i].indexOf("change") > -1) {
+                    var clsName = "." + classArr[i];
+                    $(".insureDuty").find(clsName).val($(this).find("option:selected").text());
+                }
+            }
+        });
+    }
+    $(".only").focus(function(){
+        $(this).blur();
+    });
     //地区
     getArea("appntArea");
     getArea("insuredArea");

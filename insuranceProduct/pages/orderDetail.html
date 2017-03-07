@@ -68,8 +68,6 @@
         </section>
         <form action="" id="orderForm" method="post">
             <input type="hidden" name="orderNo" id="orderNo">
-            <input type="hidden" name="orderNo" value = 122>
-            <input type="hidden" name="orderNo" value="456">
         </form>
     </article>
     <!--尾部-->
@@ -77,7 +75,7 @@
         <p class="premium pl"><span class="l-txt">合计保费：</span><span class="m-num">390.02</span><span class="r-RMB">元</span></p>
         <p class="content txtC">本产品由和谐健康股份有限公司承保。</p>
         <a href="javascript:void(0);" class="link txtC">《保险条款》</a>
-        <a href="tel:95569" class="btn txtC" id="apply">申请理赔</a>
+        <!--<a href="javascript:void(0);" class="btn txtC" id="apply">申请理赔</a>-->
         <p class="btn txtC" id="insuredAgain">再次投保</p>
     </footer>
     <!--支付按钮-->
@@ -100,9 +98,10 @@
     </div>
     <!--弹窗-->
     <div class="mask" >
-        <div class="pop repeat">
-            <span></span>
-            <a class="pop-sure">确定</a>
+        <div class="pop">
+            <span>申请理赔：您可以通过搭伙保险客服热线400-111-1111转8协助办理，亦可通过安邦保险集团客服电话95569进行报案。是否拨打95569？</span>
+            <a class="pop-cancel l-float w50">否</a>
+            <a href="tel:95569" class="pop-sure l-float w50">是</a>
         </div>
     </div>
 </body>

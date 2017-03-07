@@ -102,7 +102,7 @@
             <input type = "hidden" class = "personInfo" id= "memberId" name = "order.memberId" value = "${memberId}">
             <input type = "hidden" class = "personInfo" id= "channelCode" name = "order.channelCode" value = "${channelCode}">
             <!--产品投保要素-->
-            <section class="infoList">
+            <section class="infoList product">
                 <p class="ml">产品投保要素</p>
                 <div class="infoSec pl pr bgColor borTop1 borBot1">
                     <dl class="clearfix infoDl borBot1 dlSec">
@@ -111,6 +111,17 @@
                             <span>
                                 <input type="text" class="textfield txtR personInfo birthdayChoose" readonly id="startTime" name = "applicant.appntBirthday" placeholder="请选择">
                             </span>
+                        </dd>
+                        <span class="errorMsg"></span>
+                    </dl>
+                    <dl class="clearfix infoDl borBot1 dlSec">
+                        <dt class="w35 l-float">证件类型</dt>
+                        <dd class="w65 l-float txtR hasArrow">
+                            <select name="applicant.appntIdcardType" id="" class="cardType txtR personInfo change_12345">
+                                <option value="01">身份证</option>
+                                <option value="02">护照</option>
+                            </select>
+                            <i class="arrow"></i>
                         </dd>
                         <span class="errorMsg"></span>
                     </dl>
@@ -491,57 +502,73 @@
             </section>
             <!--保险信息-->
             <section class="infoList">
-                <p class="ml">保险信息</p>
+            <p class="ml">保险信息</p>
+            <div class="infoSec pl pr bgColor borTop1 borBot1">
+                <dl class="clearfix borBot1 dlSec">
+                    <dt class="w80 l-float">投保额度投保额度投保额度投保额度投保额度投保额度投保</dt>
+                    <dd class="w20 l-float txtR hasArrow">
+                        <!--<select name="premium" id="premium" class="premium txtR">-->
+                        <!--<option>请选择</option>-->
+                        <!--<option value="20000">2万</option>-->
+                        <!--</select>-->
+                        <!--<i class="arrow"></i>-->
+                        <!--<span class="only" id="onlyPremium" data-onlyPremium="">2万</span>-->
+                        <!--<input type="text" readonly class="only textfield txtR" value="2万2万2万2万2万2万2万2万2万2万2万2万">-->
+                        <span class="only textfield txtR insurInfo" id ="duty_${fmduty.dutyCode}" data-code="${fmduty.dutyCode}" data-value="${fmduty.femdutyFactor.femdutyAmntPremList.get(0).backUp1}" data-ispremcal="${fmduty.femdutyFactor.isPremCalFacotor}" data-prem="">${fmduty.femdutyFactor.femdutyAmntPremList.get(0).amnt}</span>
+                    </dd>
+                    <span class="errorMsg"></span>
+                </dl>
+                <dl class="clearfix borBot1 dlSec">
+                    <dt class="w80 l-float">保险期间</dt>
+                    <dd class="w20 l-float txtR hasArrow">
+                        <select name="period" id="period" class="period txtR">
+                            <option>请选择</option>
+                            <option>20年</option>
+                            <option>30年</option>
+                        </select>
+                        <i class="arrow"></i>
+                    </dd>
+                    <span class="errorMsg"></span>
+                </dl>
+                <dl class="clearfix borBot1 dlSec">
+                    <dt class="w80 l-float">交费方式</dt>
+                    <dd class="w20 l-float txtR hasArrow">
+                        <select name="payMethod" id="payMethod" class="payMethod txtR">
+                            <option>请选择</option>
+                            <option>10年期</option>
+                            <option>20年期</option>
+                        </select>
+                        <i class="arrow"></i>
+                    </dd>
+                    <span class="errorMsg"></span>
+                </dl>
+                <dl class="clearfix borBot1 dlSec">
+                    <dt class="w80 l-float">附加险</dt>
+                    <dd class="w20 l-float txtR hasArrow">
+                        <select name="addInsurance" id="addInsurance" class="addInsurance txtR">
+                            <option>是</option>
+                            <option>否</option>
+                        </select>
+                        <i class="arrow"></i>
+                    </dd>
+                    <span class="errorMsg"></span>
+                </dl>
+            </div>
+        </section>
+
+
+            <section class="infoList insureDuty">
+                <p class="ml">保障</p>
                 <div class="infoSec pl pr bgColor borTop1 borBot1">
                     <dl class="clearfix borBot1 dlSec">
-                        <dt class="w80 l-float">投保额度投保额度投保额度投保额度投保额度投保额度投保</dt>
+                        <dt class="w80 l-float">投保额度投保额保额度投保</dt>
                         <dd class="w20 l-float txtR hasArrow">
-                            <!--<select name="premium" id="premium" class="premium txtR">-->
-                            <!--<option>请选择</option>-->
-                            <!--<option value="20000">2万</option>-->
-                            <!--</select>-->
-                            <!--<i class="arrow"></i>-->
-                            <!--<span class="only" id="onlyPremium" data-onlyPremium="">2万</span>-->
-                            <!--<input type="text" readonly class="only textfield txtR" value="2万2万2万2万2万2万2万2万2万2万2万2万">-->
-                            <span class="only textfield txtR insurInfo" id ="duty_${fmduty.dutyCode}" data-code="${fmduty.dutyCode}" data-value="${fmduty.femdutyFactor.femdutyAmntPremList.get(0).backUp1}" data-ispremcal="${fmduty.femdutyFactor.isPremCalFacotor}" data-prem="">${fmduty.femdutyFactor.femdutyAmntPremList.get(0).amnt}</span>
+                            <!--<input type="text" readonly class="only textfield txtR change_12345" value="2万2万2万2万2万2万2万2万2万2万2万2万">-->
+                            <textarea readonly class="only textfield txtR change_12345">在w3school，你可以找到你所需要的所有的网站建设教程。</textarea>
                         </dd>
                         <span class="errorMsg"></span>
                     </dl>
-                    <dl class="clearfix borBot1 dlSec">
-                        <dt class="w80 l-float">保险期间</dt>
-                        <dd class="w20 l-float txtR hasArrow">
-                            <select name="period" id="period" class="period txtR">
-                                <option>请选择</option>
-                                <option>20年</option>
-                                <option>30年</option>
-                            </select>
-                            <i class="arrow"></i>
-                        </dd>
-                        <span class="errorMsg"></span>
-                    </dl>
-                    <dl class="clearfix borBot1 dlSec">
-                        <dt class="w80 l-float">交费方式</dt>
-                        <dd class="w20 l-float txtR hasArrow">
-                            <select name="payMethod" id="payMethod" class="payMethod txtR">
-                                <option>请选择</option>
-                                <option>10年期</option>
-                                <option>20年期</option>
-                            </select>
-                            <i class="arrow"></i>
-                        </dd>
-                        <span class="errorMsg"></span>
-                    </dl>
-                    <dl class="clearfix borBot1 dlSec">
-                        <dt class="w80 l-float">附加险</dt>
-                        <dd class="w20 l-float txtR hasArrow">
-                            <select name="addInsurance" id="addInsurance" class="addInsurance txtR">
-                                <option>是</option>
-                                <option>否</option>
-                            </select>
-                            <i class="arrow"></i>
-                        </dd>
-                        <span class="errorMsg"></span>
-                    </dl>
+
                 </div>
             </section>
             <!--受益人信息-->
@@ -549,7 +576,7 @@
                 <p class="ml">受益人信息</p>
                 <div class="infoSec pl pr pt pb bgColor borTop1 borBot1">
                     <p class="title">法定受益人</p>
-                    <a class="content pl pr" href="tel:95569">(如需变更请携带身份证原件到我司柜面处理，具体详情请咨询95569)</a>
+                    <a class="content pl pr" href="tel:95569">(如需变更请携带身份证件原件到安邦保险柜面处理，详情请咨询95569)</a>
                 </div>
             </section>
             <!--续缴账户信息-->
@@ -647,5 +674,8 @@
             <a class="pop-sure">确定</a>
         </div>
     </div>
+    <script>
+
+    </script>
 </body>
 </html>

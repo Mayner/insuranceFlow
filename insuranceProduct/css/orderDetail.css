@@ -216,3 +216,26 @@ span.policyType {
         transform: scale(1);
     }
 }
+/*弹窗遮罩*/
+.pop-cancel {
+    color: #222;
+    text-align: center;
+    height: 43px;
+    line-height: 43px;
+    border-top: 0.025rem solid #e2e2e2;
+    border-right: 0.025rem solid #e2e2e2;
+    display: block;
+    font-size: 0.8rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.pop .pop-sure {
+    color: #222;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.mask .pop>span {
+    text-align: left;
+}

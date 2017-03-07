@@ -1,21 +1,21 @@
 $(function () {
-    var path = "http://10.10.116.170:21002",//本地
-    //var path = "http://10.219.10.72:21002",//测试环境
+    //var path = "http://10.10.116.170:21002",//本地
+    var path = "http://10.219.10.72:21002",//测试环境
         productNo= getQueryString("productNo"),
         memberId = getQueryString("memberId"),
         channelCode= getQueryString("channelCode"),
         orderNo= getQueryString("orderNo"),
         orderStatus= getQueryString("orderStatus");
-    //productNo="210102001";
-    //memberId = "187891";
-    //channelCode="01";
-    //orderNo = "D00DtI1rXo000000000305";
+    productNo="210102001";
+    memberId = "187891";
+    channelCode="01";
+    orderNo = "D00DtI1rXo000000000305";
     //orderStatus = "0";//全部
     //orderStatus = "1";//暂存
     //orderStatus = "2";//待支付
     //orderStatus = "3";//已支付
     //orderStatus = "4";//订单过期
-    //orderStatus = "5";//已取消
+    orderStatus = "5";//已取消
     //orderStatus = "6";//订单删除
     //orderStatus = "7";//待续保
     //orderStatus = "8";//已预约
@@ -84,6 +84,15 @@ $(function () {
             });
         }
     }, function () {});
+    //点击申请理赔弹窗
+    $("#apply").on("click", function () {
+        $(".mask").show();
+        $(".pop").show();
+    });
+    $(".pop-cancel,.pop-sure").on("click", function () {
+        $(".mask").hide();
+        $(".pop").hide();
+    })
 });
 
 //获取页面urlParam
