@@ -150,12 +150,12 @@ span.policyType {
 .insureBtn {
     background-color: #D43333;
     color: #fff;
-    height: 2.3rem;
 }
 .fixedBox {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    height: 2.2rem;
     line-height: 2.2rem;
     font-size: 0.8rem;
     position: fixed;

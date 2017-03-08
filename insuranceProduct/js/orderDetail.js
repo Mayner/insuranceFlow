@@ -1,27 +1,28 @@
 $(function () {
-    //var path = "http://10.10.116.170:21002",//本地
-    var path = "http://10.219.10.72:21002",//测试环境
+    //var path = "http://10.10.116.170:21002/",//本地
+    //var path = "http://10.219.10.72:21002/",//测试环境
+    var path = "https://www.dahuobaoxian.com/order/",//生产环境
         productNo= getQueryString("productNo"),
         memberId = getQueryString("memberId"),
         channelCode= getQueryString("channelCode"),
         orderNo= getQueryString("orderNo"),
         orderStatus= getQueryString("orderStatus");
-    productNo="210102001";
-    memberId = "187891";
-    channelCode="01";
-    orderNo = "D00DtI1rXo000000000305";
+    //productNo="210102001";
+    //memberId = "187891";
+    //channelCode="01";
+    //orderNo = "D00DtI1rXo000000000305";
     //orderStatus = "0";//全部
     //orderStatus = "1";//暂存
     //orderStatus = "2";//待支付
     //orderStatus = "3";//已支付
     //orderStatus = "4";//订单过期
-    orderStatus = "5";//已取消
+    //orderStatus = "5";//已取消
     //orderStatus = "6";//订单删除
     //orderStatus = "7";//待续保
     //orderStatus = "8";//已预约
     //console.log(productNo, memberId, channelCode, orderNo, orderStatus);
     //var url = "http://10.10.116.170:21002/orderInfo/getOrderInfoDetail?memberId=187891&orderNo=D00DtI1rXo000000000305";
-    sendRequest(path + "/orderInfo/getOrderInfoDetail",{memberId: memberId, orderNo: orderNo}, function (data) {
+    sendRequest(path + "orderInfo/getOrderInfoDetail",{memberId: memberId, orderNo: orderNo}, function (data) {
         if (data.code == "0") {
             console.log(data);
             var dataObj = data.data;
@@ -80,10 +81,27 @@ $(function () {
             $("#insuredAgain").on("click", function () {
                 //$("#orderForm").submit();
                 $(".loading").show();
-                window.location.href = path + "/getProductPageInfo?productNo=" + productNo + "&memberId=" + memberId + "&channelCode=" + channelCode + "&orderNo=" + orderNo;
+                window.location.href = path + "getProductPageInfo?productNo=" + productNo + "&memberId=" + memberId + "&channelCode=" + channelCode + "&orderNo=" + orderNo;
             });
         }
     }, function () {});
+    //产品编码相对应的保险公司名称
+    //1101 : 安邦人寿保险股份有限公司
+    //2101 : 安邦财产保险股份有限公司
+    //3101 : 和谐健康保险股份有限公司
+    //4101 : 安邦养老保险股份有限公司
+    if (productNo) {
+        if (productNo.substr(0, 4) == "1101") {
+            $("footer .content").text("本产品由安邦人寿保险股份有限公司承保。")
+        } else if (productNo.substr(0, 4) == "2101") {
+            $("footer .content").text("本产品由安邦财产保险股份有限公司承保。")
+        } else if (productNo.substr(0, 4) == "3101") {
+            $("footer .content").text("本产品由和谐健康保险股份有限公司承保。")
+        } else if (productNo.substr(0, 4) == "4101") {
+            $("footer .content").text("本产品由安邦养老保险股份有限公司承保。")
+        }
+    }
+
     //点击申请理赔弹窗
     $("#apply").on("click", function () {
         $(".mask").show();
