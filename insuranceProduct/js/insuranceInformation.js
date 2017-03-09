@@ -66,13 +66,23 @@ $(function () {
             }
         });
     }
-    $(".only").focus(function(){
-        $(this).blur();
+    //保障项目/额度显示隐藏
+    $("#guarantee>p").on("click", function () {
+        if ($(this).hasClass("hideGuarantee")) {
+            $(this).siblings("div").show();
+            $(this).removeClass("hideGuarantee").addClass("showGuarantee");
+        } else {
+            $(this).siblings("div").slideUp();
+            $(this).removeClass("showGuarantee").addClass("hideGuarantee");
+        }
+        $("html body").animate({"scrollTop":$(this).offset().top+"px"},"swing");
     });
     //地区
-    getArea("appntArea");
-    getArea("insuredArea");
-    getArea("propertyArea");
+    setTimeout(function(){
+        getArea("appntArea");
+        getArea("insuredArea");
+        getArea("propertyArea");
+    });
     //改变银行发送数据
     $("#accountBank").change(function(){
         $("#bankArea").val("");
@@ -523,19 +533,21 @@ $(function () {
     });
     //发送数据
     $("#sureToSave").click(function() {
-    	if (!checkAll()) return;
-        sendRequest(path +"/getSaveInfo",getData(),function (data) {
-        	var obj = JSON.parse(data);
-        	if(obj.code == 0){
-        		var orderNo = obj.data.orderNo,
-                    returnPage = obj.data.returnPage;
-        		window.location.href = path + returnPage + "?orderNo="+orderNo;
-            }else{
-            	$(".pop").show();
-            	$(".mask").show();
-            	$(".pop span").text(obj.msg);
-            }
-        },function(){});
+        window.location.href = "./largePayment.html";
+        $(".loading").show();
+        //if (!checkAll()) return;
+        //sendRequest(path +"/getSaveInfo",getData(),function (data) {
+        //	var obj = JSON.parse(data);
+        //	if(obj.code == 0){
+        //		var orderNo = obj.data.orderNo,
+        //            returnPage = obj.data.returnPage;
+        //		window.location.href = path + returnPage + "?orderNo="+orderNo;
+        //    }else{
+        //    	$(".pop").show();
+        //    	$(".mask").show();
+        //    	$(".pop span").text(obj.msg);
+        //    }
+        //},function(){});
     });
 
 });

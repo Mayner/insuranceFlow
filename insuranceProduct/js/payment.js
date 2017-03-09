@@ -112,7 +112,7 @@ $(function () {
 
 //历史回退
 function goBack() {
-    window.history.back();
+    window.history.go(-1);
 }
 
 //判断是处于哪个平台浏览器

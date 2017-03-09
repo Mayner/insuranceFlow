@@ -150,7 +150,7 @@ select {
 	display: block;
 }
 section.infoList:last-child {
-    margin-bottom: 3.575rem;
+    margin-bottom: 2.2rem;
 }
 section.infoList:last-child .whetherRead {
     position: relative;
@@ -192,7 +192,12 @@ textarea {
     height:  0.8rem;
     line-height: 0.8rem;
     vertical-align: middle;
-    pointer-events: none;
+    /*pointer-events: none;*/
+}
+input, select {
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
 }
 input.tmp {
     font-size: 0.65rem;
@@ -228,6 +233,30 @@ input.tmp {
     overflow: hidden;
     -ms-text-overflow: ellipsis;
     text-overflow: ellipsis;
+}
+#guarantee>p {
+    position: relative;
+}
+#guarantee>div {
+    display: none;
+}
+#guarantee>p:after {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    position: absolute;
+    left: -0.55rem;
+    top: 0.525rem;
+}
+#guarantee>.hideGuarantee:after {
+    background: url(../images/pullUp.png) no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+#guarantee>.showGuarantee:after {
+    background: url(../images/pullDown.png) no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
 }
 /* loading动画 */
 .loading{
