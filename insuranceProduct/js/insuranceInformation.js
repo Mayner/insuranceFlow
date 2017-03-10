@@ -533,21 +533,19 @@ $(function () {
     });
     //发送数据
     $("#sureToSave").click(function() {
-        window.location.href = "./largePayment.html";
-        $(".loading").show();
-        //if (!checkAll()) return;
-        //sendRequest(path +"/getSaveInfo",getData(),function (data) {
-        //	var obj = JSON.parse(data);
-        //	if(obj.code == 0){
-        //		var orderNo = obj.data.orderNo,
-        //            returnPage = obj.data.returnPage;
-        //		window.location.href = path + returnPage + "?orderNo="+orderNo;
-        //    }else{
-        //    	$(".pop").show();
-        //    	$(".mask").show();
-        //    	$(".pop span").text(obj.msg);
-        //    }
-        //},function(){});
+        if (!checkAll()) return;
+        sendRequest(path +"/getSaveInfo",getData(),function (data) {
+        	var obj = JSON.parse(data);
+        	if(obj.code == 0){
+        		var orderNo = obj.data.orderNo,
+                    returnPage = obj.data.returnPage;
+        		window.location.href = path + returnPage + "?orderNo="+orderNo;
+            }else{
+            	$(".pop").show();
+            	$(".mask").show();
+            	$(".pop span").text(obj.msg);
+            }
+        },function(){});
     });
 
 });
