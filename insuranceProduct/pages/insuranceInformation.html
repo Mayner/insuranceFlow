@@ -586,7 +586,7 @@
             <p class="ml hideGuarantee">保障项目/额度</p>
             <div class="infoSec pl pr bgColor borTop1 borBot1">
                 <dl class="clearfix borBot1 dlSec">
-                    <dt class="w80 l-float">投保额度投保额度投保额度投保额度投保额度投保额度投保</dt>
+                    <dt class="w80 l-float">投保额度</dt>
                     <dd class="w20 l-float txtR hasArrow">
                         <!--<select name="premium" id="premium" class="premium txtR">-->
                         <!--<option>请选择</option>-->
@@ -595,7 +595,11 @@
                         <!--<i class="arrow"></i>-->
                         <!--<span class="only" id="onlyPremium" data-onlyPremium="">2万</span>-->
                         <!--<input type="text" readonly class="only textfield txtR" value="2万2万2万2万2万2万2万2万2万2万2万2万">-->
-                        <textarea class="only textfield txtR insurInfo" id="duty_${fmduty.dutyCode}"
+                        <!--<textarea readonly class="only textfield txtR insurInfo" id="duty_${fmduty.dutyCode}"-->
+                                  <!--data-code="${fmduty.dutyCode}"-->
+                                  <!--data-value="${fmduty.femdutyFactor.femdutyAmntPremList.get(0).backUp1}"-->
+                                  <!--data-ispremcal="${fmduty.femdutyFactor.isPremCalFacotor}" data-prem="">mnt</textarea>-->
+                        <textarea readonly class="only textfield txtR insurInfo" id="duty_${fmduty.dutyCode}"
                                   data-code="${fmduty.dutyCode}"
                                   data-value="${fmduty.femdutyFactor.femdutyAmntPremList.get(0).backUp1}"
                                   data-ispremcal="${fmduty.femdutyFactor.isPremCalFacotor}" data-prem="">${fmduty.femdutyFactor.femdutyAmntPremList.get(0).amnt}</textarea>

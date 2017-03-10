@@ -885,7 +885,7 @@ function getData(){
             obj.isPremCalFacotor = $(this).data("ispremcal");
             obj.appValue = $(this).find("option:selected").val();
             obj.appShowValue = $(this).find("option:selected").text();
-        }else if(el.tagName == "INPUT"){
+        }else if(el.tagName == "INPUT" || el.tagName == "TEXTAREA"){
             obj.apptype = $(this).data("type");
             obj.appFactorCode = $(this).data("appfactorid");
             obj.isPremCalFacotor = $(this).data("ispremcal");
@@ -903,7 +903,7 @@ function getData(){
             obj.showAmnt = $(this).find("option:selected").text();
             obj.prem = $(this).data("prem");
             obj.isPremCalFacotor = $(this).data("ispremcal");
-        }else if(el.tagName == "INPUT"){
+        }else if(el.tagName == "INPUT" || el.tagName == "TEXTAREA"){
             obj.dutyNo = $(this).data("code");
             obj.amnt = $(this).data("value");
             obj.showAmnt = $(this).val();
