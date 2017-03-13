@@ -17,7 +17,7 @@
     <script src="../js/jquery-1.10.1.min.js"></script>
     <script src="../js/html5shiv.min.js"></script>
     <script src="../js/rem.min.js"></script>
-    <script src="../js/runRem.js"></script>
+    <script src="../js/runRem1.js"></script>
     <script src="../js/fastclick.js"></script>
     <script src="../js/runFastclick.js"></script>
     <script src="../js/orderDetail.js"></script>
@@ -34,6 +34,9 @@
         <section class="pl pr pt pb bgColor">
             <p class="borBot1 secTitle">保障责任：</p>
             <div class="orderDetails w100" id="dutyShowInfoList">
+                <dl>
+                        <span class="orderLeft">'+arr[i].showName+'</span><span class="orderRight">'+arr[i].showValue+'</span>
+                    </dl>
             </div>
         </section>
         <!--投保人信息-->
@@ -62,7 +65,7 @@
             <p class="borBot1 secTitle">其他信息：</p>
             <div class="orderDetails w100">
                 <dl>
-                    <span class="orderLeft policyType">保单类型：</span><span class="orderRight">电子子保单(理赔时只需要提供身份证即可)</span>
+                    <span class="orderLeft policyType">保单类型：</span><span class="orderRight">电子保单(理赔时只需要提供身份证即可)</span>
                 </dl>
             </div>
         </section>

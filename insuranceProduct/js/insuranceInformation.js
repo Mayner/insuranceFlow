@@ -362,6 +362,7 @@ $(function () {
     });
     //证件号码校验
     $("#idNo").on("blur", function () {
+        $(this).val($(this).val().toUpperCase());
         //身份证校验
         if ($("#cardType").find("option:selected").text() == "身份证") {
             checkID($(this));
@@ -420,6 +421,7 @@ $(function () {
     });
     //证件号码校验
     $("#insuredIdNo").on("blur", function () {
+        $(this).val($(this).val().toUpperCase());
         //身份证校验
         if ($("#insuredCardType").find("option:selected").text() == "身份证") {
             checkID($(this));
@@ -531,6 +533,29 @@ $(function () {
     $("#propertyAddress").on("blur", function () {
         checkAddress($(this));
     });
+
+    //$("#birthday").on("change", function () {
+    //    alert("投保生日可选");
+    //    sendPriceRequest(path +"/prem/getProductPrem",getData(),function (data) {
+    //        var obj = JSON.parse(data);
+    //        console.log(obj);
+    //
+    //
+    //    },function(){});
+    //});
+
+    //$("#idNo").blur(function () {
+    //    alert("投保生日只读");
+    //});
+    //$("#insuredBirthday").on("change", function () {
+    //    alert("被保生日可选");
+    //});
+    //$("#insuredIdNo").blur(function () {
+    //    alert("被保生日只读");
+    //});
+
+
+
     //发送数据
     $("#sureToSave").click(function() {
         if (!checkAll()) return;

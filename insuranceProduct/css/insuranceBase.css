@@ -148,10 +148,10 @@ i, em {
     display: -webkit-box;
 }
 .borTop1 {
-    border-top: 0.025rem solid #e2e2e2;
+    border-top: 1px solid #e2e2e2;
 }
 .borBot1 {
-    border-bottom: 0.025rem solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
 }
 .pl {
     padding-left: 0.75rem;
@@ -261,7 +261,7 @@ select {
     text-align: center;
     height: 43px;
     line-height: 43px;
-    border-top: 0.025rem solid #e2e2e2;
+    border-top: 1px solid #e2e2e2;
     display: block;
     font-size: 0.8rem;
 }

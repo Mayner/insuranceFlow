@@ -119,13 +119,9 @@
                     <span class="errorMsg"></span>
                 </dl>
                 <dl class="clearfix infoDl borBot1 dlSec">
-                    <dt class="w35 l-float">证件类型</dt>
+                    <dt class="w35 l-float">保险期限</dt>
                     <dd class="w65 l-float txtR hasArrow">
-                        <select name="applicant.appntIdcardType" id="" class="cardType txtR personInfo change_12345">
-                            <option value="01">身份证</option>
-                            <option value="02">护照</option>
-                        </select>
-                        <i class="arrow"></i>
+                        <input id="dataInput" type="text" class="textfield txtR sexReadonly" readonly>
                     </dd>
                     <span class="errorMsg"></span>
                 </dl>
@@ -145,7 +141,7 @@
                 <dl class="clearfix infoDl borBot1 dlSec">
                     <dt class="w35 l-float">证件类型</dt>
                     <dd class="w65 l-float txtR hasArrow">
-                        <select name="applicant.appntIdcardType" id="cardType" class="cardType txtR personInfo">
+                        <select name="applicant.appntIdcardType" id="cardType" class="cardType txtR personInfo" onchange="changeCardType(this.value)">
                             <option value="01">身份证</option>
                             <option value="02">护照</option>
                         </select>
@@ -586,8 +582,8 @@
             <p class="ml hideGuarantee">保障项目/额度</p>
             <div class="infoSec pl pr bgColor borTop1 borBot1">
                 <dl class="clearfix borBot1 dlSec">
-                    <dt class="w80 l-float">投保额度</dt>
-                    <dd class="w20 l-float txtR hasArrow">
+                    <dt class="w65 l-float">投保额度</dt>
+                    <dd class="w35 l-float txtR hasArrow">
                         <!--<select name="premium" id="premium" class="premium txtR">-->
                         <!--<option>请选择</option>-->
                         <!--<option value="20000">2万</option>-->
@@ -607,8 +603,8 @@
                     <span class="errorMsg"></span>
                 </dl>
                 <dl class="clearfix borBot1 dlSec">
-                    <dt class="w80 l-float">保险期间</dt>
-                    <dd class="w20 l-float txtR hasArrow">
+                    <dt class="w65 l-float">保险期间</dt>
+                    <dd class="w35 l-float txtR hasArrow">
                         <select name="period" id="period" class="period txtR">
                             <option>请选择</option>
                             <option>20年</option>
@@ -619,8 +615,8 @@
                     <span class="errorMsg"></span>
                 </dl>
                 <dl class="clearfix borBot1 dlSec">
-                    <dt class="w80 l-float">交费方式</dt>
-                    <dd class="w20 l-float txtR hasArrow">
+                    <dt class="w65 l-float">交费方式</dt>
+                    <dd class="w35 l-float txtR hasArrow">
                         <select name="payMethod" id="payMethod" class="payMethod txtR">
                             <option>请选择</option>
                             <option>10年期</option>
@@ -631,8 +627,8 @@
                     <span class="errorMsg"></span>
                 </dl>
                 <dl class="clearfix borBot1 dlSec">
-                    <dt class="w80 l-float">附加险</dt>
-                    <dd class="w20 l-float txtR hasArrow">
+                    <dt class="w65 l-float">附加险</dt>
+                    <dd class="w35 l-float txtR hasArrow">
                         <select name="addInsurance" id="addInsurance" class="addInsurance txtR">
                             <option>是</option>
                             <option>否</option>
@@ -652,7 +648,7 @@
         <!--</section>-->
     </form>
     <!--投保按钮-->
-    <div class="pl bgColor borTop1 borBot1 fixedBox w100">
+        <div class="pl bgColor borTop1 borBot1 fixedBox w100">
         <dl class="clearfix infoDl w100">
             <dt class="w65 l-float">保额：<input type="text" readonly class="insurePrice w70" id="insurePrice" value="1113141111.00元"></dt>
             <dd class="w35 l-float">

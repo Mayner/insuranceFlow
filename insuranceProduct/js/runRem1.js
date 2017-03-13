@@ -1,0 +1,1 @@
+(function(E,B){var C=E.documentElement,A="orientationchange" in window?"orientationchange":"resize",D=function(){var F=C.clientWidth;if(!F){return}C.style.fontSize=20*(F/320)+"px"};if(!E.addEventListener){return}B.addEventListener(A,D,false);E.addEventListener("DOMContentLoaded",D,false)})(document,window);

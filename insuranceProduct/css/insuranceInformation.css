@@ -150,7 +150,7 @@ select {
 	display: block;
 }
 section.infoList:last-child {
-    margin-bottom: 2.2rem;
+    margin-bottom: 2.45rem;
 }
 section.infoList:last-child .whetherRead {
     position: relative;
@@ -179,8 +179,8 @@ section.infoList:last-child .whetherRead {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    height: 2.2rem;
-    line-height: 2.2rem;
+    height: 2.45rem;
+    line-height: 2.45rem;
     font-size: 0.8rem;
     position: fixed;
     left: 0;
