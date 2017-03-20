@@ -118,10 +118,13 @@ function checkAddress(addressElm) {
     if (checkEmpty(addressElm.val())) {
         addressElm.parent().siblings(".errorMsg").css("display", "inline-block").text("请填写详细联系地址！");
         return false;
-    } else if (!Regex.address.test(addressElm.val().trim())) {
+    } else if (!(/^[a-zA-Z\d\u4E00-\u9FA5]+$/i.test(addressElm.val().trim()))) {
+        addressElm.parent().siblings(".errorMsg").css("display", "inline-block").text("不能填写特殊字符或空格！");
+        return false;
+    }  else if (!Regex.address.test(addressElm.val().trim())) {
         addressElm.parent().siblings(".errorMsg").css("display", "inline-block").text("详细联系地址请具体到门牌号！");
         return false;
-    } else {
+    }else {
         addressElm.parent().siblings(".errorMsg").hide().text("");
         return true;
     }

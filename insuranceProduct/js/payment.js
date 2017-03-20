@@ -79,11 +79,55 @@ $(function () {
         $(".mask").hide();
     });
     $("#declareLink").on("click", function () {
-        $(".cover").fadeToggle();
+        $("html,body").css({"position":"fixed","top":"0","height":"100%"});
+        $(".cover .declareContent h2").text($(this).text());
+        $("#declareCover").fadeIn();
+
+        //var coverHtml = '';
+        //var pArr = ["本电子投保单是保险合同的重要组成部分","请您详细阅读所投保险种的相关保险条款","请您全面理解所要投保的产品","以死亡为给付保险金条件的合同","根据国务院保险监督管理机构的规定","请您详细阅读所投保险种的相关保险条款","请您详细阅读所投保险种的相关保险条款","请您详细阅读所投保险种的相关保险条款","请您详细阅读所投保险种的相关保险条款","请您详细阅读所投保险种的相关保险条款","请您详细阅读所投保险种的相关保险条款","请您详细阅读所投保险种的相关保险条款","请您详细阅读所投保险种的相关保险条款","请您详细阅读所投保险种的相关保险条款","请您详细阅读所投保险种的相关保险条款"];
+        //for (var i = 0; i < pArr.length; i++) {
+        //    coverHtml += '<p>' + pArr[i] + '</p>';
+        //}
+        //$(".cover .declareText").html(coverHtml);
+
     });
-    $(".declareBox .closeBtn").on("click", function () {
-        $(".cover").fadeToggle();
+    $("#declareCover .closeBtn").on("click", function () {
+        $("html,body").css({"position":"relative","top":"0","height":"auto"});
+        $("html body").scrollTop($("html body").height())
+        $("#declareCover").fadeOut();
     });
+    $("#noticeLink").on("click", function () {
+        $("html,body").css({"position":"fixed","top":"0","height":"100%"});
+        $("#noticeCover").fadeIn();
+    });
+    $("#noticeCover .closeBtn").on("click", function () {
+        $("html,body").css({"position":"relative","top":"0","height":"auto"});
+        $("#noticeCover").fadeOut();
+    });
+    $("#tipBookLink").on("click", function () {
+        $("html,body").css({"position":"fixed","top":"0","height":"100%"});
+        $("#tipBookCover").fadeIn();
+    });
+    $("#tipBookCover .closeBtn").on("click", function () {
+        $("html,body").css({"position":"relative","top":"0","height":"auto"});
+        $("#tipBookCover").fadeOut();
+    });
+
+    //popup($("#declareLink"), $("#declareCover"), $("#declareCover .closeBtn"));
+    //popup($("#noticeLink"), $("#noticeCover"), $("#noticeCover .closeBtn"));
+    //popup($("#tipBookLink"), $("#tipBookCover"), $("#tipBookCover .closeBtn"));
+
+    //投保声明弹窗函数
+    //function popup(linkElm, coverElm, closeElm){
+    //    linkElm.on("click", function () {
+    //        $("html,body").css({"position":"fixed","top":"0","height":"100%"});
+    //        coverElm.fadeIn();
+    //    });
+    //    closeElm.on("click", function () {
+    //        $("html,body").css({"position":"relative","top":"0","height":"auto"});
+    //        coverElm.fadeOut();
+    //    });
+    //}
 
     //点击立即支付时校验是否勾选
     $(".insureBtn").on("click", function () {
@@ -98,9 +142,9 @@ $(function () {
         } else if ($("#Alipay").siblings("input").prop("checked")) {
             alert("支付宝支付");
         } else {
+            $(".loading").show();
             //提交form表单
             $("#payTypeForm").submit();
-            $(".loading").show();
         }
 
     });

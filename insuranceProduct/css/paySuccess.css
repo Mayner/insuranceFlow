@@ -32,6 +32,7 @@ html, body {
     border: 0.05rem solid #CCCCCC;
     border-radius: 0.2rem;
     width: 6.9rem;
+    margin: 0 auto;
 }
 .jumpBtn>li.active {
     border: 0.05rem solid #D43333;

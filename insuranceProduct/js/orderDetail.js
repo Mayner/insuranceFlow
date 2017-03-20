@@ -21,6 +21,19 @@ $(function () {
     //orderStatus = "7";//待续保
     //orderStatus = "8";//已预约
     //console.log(productNo, memberId, channelCode, orderNo, orderStatus);
+
+    //判断显示理赔还是再投
+    if (orderStatus == "3") {
+        //$("#apply").show();
+        $("#insuredAgain").hide();
+    }else if (orderStatus == "5" || orderStatus == "7") {
+        //$("#apply").hide();
+        $("#insuredAgain").show();
+    } else {
+        //$("#apply").hide();
+        $("#insuredAgain").hide();
+    }
+
     //var url = "http://10.10.116.170:21002/orderInfo/getOrderInfoDetail?memberId=187891&orderNo=D00DtI1rXo000000000305";
     sendRequest(path + "orderInfo/getOrderInfoDetail",{memberId: memberId, orderNo: orderNo}, function (data) {
         if (data.code == "0") {
@@ -52,6 +65,19 @@ $(function () {
             renderHtml(insuredShowInfoList);
             $("#insuredShowInfoList").append(html);
 
+            //判断显示理赔还是再投
+            orderStatus = dataObj.orderStatus;
+            if (orderStatus == "3") {
+                //$("#apply").show();
+                $("#insuredAgain").hide();
+            }else if (orderStatus == "5" || orderStatus == "7") {
+                //$("#apply").hide();
+                $("#insuredAgain").show();
+            } else {
+                //$("#apply").hide();
+                $("#insuredAgain").hide();
+            }
+
             //渲染页面函数
             function renderHtml(arr) {
                 for (var i = 0; i < arr.length; i ++) {
@@ -62,29 +88,18 @@ $(function () {
                         arr[i].showValue = "";
                     }
                     html += '<dl>'+
-                        '    <span class="orderLeft">'+arr[i].showName+'</span><span class="orderRight">'+arr[i].showValue+'</span>'+
-                        '</dl>';
+                            '    <span class="orderLeft">'+arr[i].showName+'</span><span class="orderRight">'+arr[i].showValue+'</span>'+
+                            '</dl>';
                 }
             }
-            //判断显示理赔还是再投
-            if (orderStatus == "3") {
-                $("#apply").show();
-                $("#insuredAgain").hide();
-            }else if (orderStatus == "5" || orderStatus == "7") {
-                $("#apply").hide();
-                $("#insuredAgain").show();
-            } else {
-                $("#apply").hide();
-                $("#insuredAgain").hide();
-            }
-            //点击再次投保按钮
-            $("#insuredAgain").on("click", function () {
-                //$("#orderForm").submit();
-                $(".loading").show();
-                window.location.href = path + "getProductPageInfo?productNo=" + productNo + "&memberId=" + memberId + "&channelCode=" + channelCode + "&orderNo=" + orderNo;
-            });
         }
     }, function () {});
+
+    //点击再次投保按钮
+    $("#insuredAgain").on("click", function () {
+        $(".loading").show();
+        window.location.href = path + "getOrderAgainPageInfo?orderNo=" + orderNo;
+    });
     //产品编码相对应的保险公司名称
     //1101 : 安邦人寿保险股份有限公司
     //2101 : 安邦财产保险股份有限公司
@@ -103,14 +118,14 @@ $(function () {
     }
 
     //点击申请理赔弹窗
-    $("#apply").on("click", function () {
-        $(".mask").show();
-        $(".pop").show();
-    });
-    $(".pop-cancel,.pop-sure").on("click", function () {
-        $(".mask").hide();
-        $(".pop").hide();
-    })
+    //$("#apply").on("click", function () {
+    //    $(".mask").show();
+    //    $(".pop").show();
+    //});
+    //$(".pop-cancel,.pop-sure").on("click", function () {
+    //    $(".mask").hide();
+    //    $(".pop").hide();
+    //})
 });
 
 //获取页面urlParam

@@ -32,13 +32,20 @@ $(function () {
             inputClass: 'tmp',
             onSelect: function () {
                 if ($(this).find("option:selected").text() == "请选择") {
+                    $(this).siblings(".tmp").css("color","#999999");
                     $(".occupationReadonly").val("");
                 } else {
+                    $(this).siblings(".tmp").css("color","#222222");
                     $(".occupationReadonly").val($(this).find("option:selected").text());
                     $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
                 }
             }
         }));
+        if ($(this).find("option:selected").text() == "请选择") {
+            $(this).siblings(".tmp").css("color","#999999");
+        } else {
+            $(this).siblings(".tmp").css("color","#222222");
+        }
     });
     $("select.occupation").each(function () {
         $(this).scroller('destroy').scroller($.extend({preset: 'select'}, {
@@ -49,10 +56,18 @@ $(function () {
             inputClass: 'tmp',
             onSelect: function () {
                 if ($(this).find("option:selected").text() != "请选择") {
+                    $(this).siblings(".tmp").css("color","#222222");
                     $(this).parent().siblings(".errorMsg").css("display", "inline-block").text("").hide();
+                }else {
+                    $(this).siblings(".tmp").css("color","#999999");
                 }
             }
         }));
+        if ($(this).find("option:selected").text() != "请选择") {
+            $(this).siblings(".tmp").css("color","#222222");
+        }else {
+            $(this).siblings(".tmp").css("color","#999999");
+        }
     });
     //产品投保要素给责任信息赋值
     if ($(".product select").length > 0) {
