@@ -19,81 +19,6 @@
     <link href="../css/iosSelect.css" rel="stylesheet" type="text/css"/>
     <link href="../css/layer.css" rel="stylesheet" type="text/css"/>
     <link href="../css/laycoo.css" rel="stylesheet" type="text/css"/>
-    <script src="../js/path.js"></script>
-    <script src="../js/jquery-1.10.1.min.js"></script>
-    <script src="../js/html5shiv.min.js"></script>
-    <script src="../js/rem.min.js"></script>
-    <script src="../js/runRem.js"></script>
-    <script src="../js/fastclick.js"></script>
-    <script src="../js/runFastclick.js"></script>
-    <script src="../js/mobiscroll-2.13.2.full.min.js" type="text/javascript"></script>
-    <script src="../js/iscroll.js"></script>
-    <script src="../js/scroll.js"></script>
-    <script src="../js/iosSelect.js"></script>
-    <script src="../js/iosSelect01.js"></script>
-    <script src="../js/checkFn.js"></script>
-    <script src="../js/insuranceInformation.js"></script>
-    <script src="../js/layer.js"></script>
-    <script src="../js/mask.js"></script>
-    <script>
-        $(function () {
-            var currYear = (new Date()).getFullYear();
-
-            function addDay(dayNumber, date) {
-                date = date ? date : new Date();
-                var ms = dayNumber * (1000 * 60 * 60 * 24);
-                var newDate = new Date(date.getTime() + ms);
-                return newDate;
-            }
-
-            var birthdayObj = {
-                theme: 'android-ics light', //皮肤样式
-                display: 'bottom', //显示方式
-                rtl: true,
-                mode: 'scroller', //日期选择模式
-                lang: 'zh',
-                dateFormat: 'yyyy-mm-dd',
-                dateOrder: 'ddmmyy',
-                startYear: currYear - 150, //开始年份
-                endYear: currYear, //结束年份
-                maxDate: addDay(0)
-            };
-            // 出生日期
-            $(".birthdayChoose").scroller('destroy').scroller($.extend({preset: 'date'}, birthdayObj));
-            $(".insuredBirthdayChoose").scroller('destroy').scroller($.extend({preset: 'date'}, birthdayObj));
-            var dateObj = {
-                theme: 'android-ics light', //皮肤样式
-                display: 'bottom', //显示方式
-                rtl: true,
-                mode: 'scroller', //日期选择模式
-                lang: 'zh',
-                dateFormat: 'yyyy-mm-dd',
-                dateOrder: 'ddmmyy',
-                startYear: currYear - 80, //开始年份
-                endYear: currYear + 30, //结束年份
-                minDate: addDay(1)
-            };
-            // 证件有效期
-            $("#idDate").scroller('destroy').scroller($.extend({preset: 'date'}, dateObj));
-            $("#insuredIdDate").scroller('destroy').scroller($.extend({preset: 'date'}, dateObj));
-
-            var startDateObj = {
-                theme: 'android-ics light', //皮肤样式
-                display: 'bottom', //显示方式
-                rtl: true,
-                mode: 'scroller', //日期选择模式
-                lang: 'zh',
-                dateFormat: 'yyyy-mm-dd',
-                dateOrder: 'ddmmyy',
-                startYear: currYear - 80, //开始年份
-                endYear: currYear + 30, //结束年份
-                minDate: addDay(0)
-            };
-            // 起保日期
-            $("#startTime").val(startDateObj.minDate.toJSON().substr(0, 10));
-            $("#startTime").scroller('destroy').scroller($.extend({preset: 'date'}, startDateObj));
-        });
-    </script>
 </head>
 <body>
 <header class="header w100 borTop1 borBot1 pl bgColor">
@@ -681,8 +606,80 @@
         <a class="pop-sure">确定</a>
     </div>
 </div>
+<script src="../js/path.js"></script>
+<script src="../js/jquery-1.10.1.min.js"></script>
+<script src="../js/html5shiv.min.js"></script>
+<script src="../js/rem.min.js"></script>
+<script src="../js/runRem.js"></script>
+<script src="../js/fastclick.js"></script>
+<script src="../js/runFastclick.js"></script>
+<script src="../js/mobiscroll-2.13.2.full.min.js" type="text/javascript"></script>
+<script src="../js/iscroll.js"></script>
+<script src="../js/scroll.js"></script>
+<script src="../js/iosSelect.js"></script>
+<script src="../js/iosSelect01.js"></script>
+<script src="../js/checkFn.js"></script>
+<script src="../js/insuranceInformation.js"></script>
+<script src="../js/layer.js"></script>
+<script src="../js/mask.js"></script>
 <script>
+    $(function () {
+        var currYear = (new Date()).getFullYear();
 
+        function addDay(dayNumber, date) {
+            date = date ? date : new Date();
+            var ms = dayNumber * (1000 * 60 * 60 * 24);
+            var newDate = new Date(date.getTime() + ms);
+            return newDate;
+        }
+
+        var birthdayObj = {
+            theme: 'android-ics light', //皮肤样式
+            display: 'bottom', //显示方式
+            rtl: true,
+            mode: 'scroller', //日期选择模式
+            lang: 'zh',
+            dateFormat: 'yyyy-mm-dd',
+            dateOrder: 'ddmmyy',
+            startYear: currYear - 150, //开始年份
+            endYear: currYear, //结束年份
+            maxDate: addDay(0)
+        };
+        // 出生日期
+        $(".birthdayChoose").scroller('destroy').scroller($.extend({preset: 'date'}, birthdayObj));
+        $(".insuredBirthdayChoose").scroller('destroy').scroller($.extend({preset: 'date'}, birthdayObj));
+        var dateObj = {
+            theme: 'android-ics light', //皮肤样式
+            display: 'bottom', //显示方式
+            rtl: true,
+            mode: 'scroller', //日期选择模式
+            lang: 'zh',
+            dateFormat: 'yyyy-mm-dd',
+            dateOrder: 'ddmmyy',
+            startYear: currYear - 80, //开始年份
+            endYear: currYear + 30, //结束年份
+            minDate: addDay(1)
+        };
+        // 证件有效期
+        $("#idDate").scroller('destroy').scroller($.extend({preset: 'date'}, dateObj));
+        $("#insuredIdDate").scroller('destroy').scroller($.extend({preset: 'date'}, dateObj));
+
+        var startDateObj = {
+            theme: 'android-ics light', //皮肤样式
+            display: 'bottom', //显示方式
+            rtl: true,
+            mode: 'scroller', //日期选择模式
+            lang: 'zh',
+            dateFormat: 'yyyy-mm-dd',
+            dateOrder: 'ddmmyy',
+            startYear: currYear - 80, //开始年份
+            endYear: currYear + 30, //结束年份
+            minDate: addDay(0)
+        };
+        // 起保日期
+        $("#startTime").val(startDateObj.minDate.toJSON().substr(0, 10));
+        $("#startTime").scroller('destroy').scroller($.extend({preset: 'date'}, startDateObj));
+    });
 </script>
 </body>
 </html>

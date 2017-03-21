@@ -15,44 +15,6 @@
     <link rel="stylesheet" href="../css/insuranceBase.css">
     <link rel="stylesheet" href="../css/payConfirm.css">
     <link href="../css/mobiscroll-2.13.2.full.min.css" rel="stylesheet" type="text/css"/>
-    <script src="../js/path.js"></script>
-    <script src="../js/jquery-1.10.1.min.js"></script>
-    <script src="../js/html5shiv.min.js"></script>
-    <script src="../js/rem.min.js"></script>
-    <script src="../js/runRem.js"></script>
-    <script src="../js/fastclick.js"></script>
-    <script src="../js/runFastclick.js"></script>
-    <script src="../js/checkFn.js"></script>
-    <script src="../js/creditPayConfirm.js"></script>
-    <script src="../js/mobiscroll-2.13.2.full.min.js" type="text/javascript"></script>
-    <script>
-        $(function () {
-            var currYear = (new Date()).getFullYear();
-            var opt={};
-            function addDay(dayNumber, date) {
-                date = date ? date : new Date();
-                var ms = dayNumber * (1000 * 60 * 60 * 24);
-                var newDate = new Date(date.getTime() + ms);
-                return newDate;
-            }
-            opt.date = {preset : 'date'};
-            opt.datetime = {preset : 'datetime'};
-            opt.time = {preset : 'time'};
-            opt.default = {
-                theme: 'android-ics light', //皮肤样式
-                display: 'bottom', //显示方式
-                rtl:true,
-                mode: 'scroller', //日期选择模式
-                lang:'zh',
-                dateFormat: 'yyyy-mm',
-                dateOrder: 'mmyy',
-                startYear:currYear - 80, //开始年份
-                endYear:currYear + 30, //结束年份
-                minDate: addDay(1)
-            };
-            $("#valid").scroller('destroy').scroller($.extend(opt['date'], opt['default']));
-        });
-    </script>
 </head>
 <body>
     <header class="header w100 borTop1 borBot1 bgColor pl pr">
@@ -166,5 +128,43 @@
             <a class="pop-sure">确定</a>
         </div>
     </div>
+    <script src="../js/path.js"></script>
+    <script src="../js/jquery-1.10.1.min.js"></script>
+    <script src="../js/html5shiv.min.js"></script>
+    <script src="../js/rem.min.js"></script>
+    <script src="../js/runRem.js"></script>
+    <script src="../js/fastclick.js"></script>
+    <script src="../js/runFastclick.js"></script>
+    <script src="../js/checkFn.js"></script>
+    <script src="../js/creditPayConfirm.js"></script>
+    <script src="../js/mobiscroll-2.13.2.full.min.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            var currYear = (new Date()).getFullYear();
+            var opt={};
+            function addDay(dayNumber, date) {
+                date = date ? date : new Date();
+                var ms = dayNumber * (1000 * 60 * 60 * 24);
+                var newDate = new Date(date.getTime() + ms);
+                return newDate;
+            }
+            opt.date = {preset : 'date'};
+            opt.datetime = {preset : 'datetime'};
+            opt.time = {preset : 'time'};
+            opt.default = {
+                theme: 'android-ics light', //皮肤样式
+                display: 'bottom', //显示方式
+                rtl:true,
+                mode: 'scroller', //日期选择模式
+                lang:'zh',
+                dateFormat: 'yyyy-mm',
+                dateOrder: 'mmyy',
+                startYear:currYear - 80, //开始年份
+                endYear:currYear + 30, //结束年份
+                minDate: addDay(1)
+            };
+            $("#valid").scroller('destroy').scroller($.extend(opt['date'], opt['default']));
+        });
+    </script>
 </body>
 </html>
