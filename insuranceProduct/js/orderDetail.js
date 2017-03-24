@@ -1,16 +1,19 @@
 $(function () {
     //var path = "http://10.10.116.170:21002/",//本地
     //var path = "http://10.219.10.72:21002/",//测试环境
-    var path = "https://www.dahuobaoxian.com/order/",//生产环境
-        productNo= getQueryString("productNo"),
+    var path = "http://10.10.116.90:21002/order/",//本地
+    //var path = "https://www.dahuobaoxian.com/order/",//生产环境
+        productNo = getQueryString("productNo"),
         memberId = getQueryString("memberId"),
-        channelCode= getQueryString("channelCode"),
-        orderNo= getQueryString("orderNo"),
-        orderStatus= getQueryString("orderStatus");
-    //productNo="210102001";
+        channelCode = getQueryString("channelCode"),
+        orderNo = getQueryString("orderNo"),
+        orderStatus = getQueryString("orderStatus"),
+        code = getQueryString("code");
+    //productNo = "210102001";
     //memberId = "187891";
-    //channelCode="01";
+    //channelCode = "01";
     //orderNo = "D00DtI1rXo000000000305";
+    //code = "ee645483092e1af702a219368730e8da";
     //orderStatus = "0";//全部
     //orderStatus = "1";//暂存
     //orderStatus = "2";//待支付
@@ -20,7 +23,7 @@ $(function () {
     //orderStatus = "6";//订单删除
     //orderStatus = "7";//待续保
     //orderStatus = "8";//已预约
-    //console.log(productNo, memberId, channelCode, orderNo, orderStatus);
+    console.log(productNo, memberId, channelCode, orderNo, orderStatus, code);
 
     //判断显示理赔还是再投
     if (orderStatus == "3") {
@@ -35,7 +38,8 @@ $(function () {
     }
 
     //var url = "http://10.10.116.170:21002/orderInfo/getOrderInfoDetail?memberId=187891&orderNo=D00DtI1rXo000000000305";
-    sendRequest(path + "orderInfo/getOrderInfoDetail",{memberId: memberId, orderNo: orderNo}, function (data) {
+    sendRequest(path + "orderInfo/getOrderInfoDetail",{memberId: memberId, orderNo: orderNo, code: code}, function (data) {
+        console.log(data);
         if (data.code == "0") {
             console.log(data);
             var dataObj = data.data;
@@ -92,8 +96,13 @@ $(function () {
                             '</dl>';
                 }
             }
+        } else if (data.code == "1") {
+            $(".mask01 span").text(data.msg);
+            $(".mask01").show();
         }
-    }, function () {});
+    }, function () {
+
+    });
 
     //点击再次投保按钮
     $("#insuredAgain").on("click", function () {

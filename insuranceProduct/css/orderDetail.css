@@ -241,3 +241,39 @@ footer.infoList {
 .mask .pop>span {
     text-align: left;
 }
+
+.pop01 {
+    width: 12rem;
+    border-radius: 5px;
+    position: fixed;
+    z-index: 5;
+    left: 50%;
+    margin-left: -6rem;
+    top: 40%;
+    margin-top: -75px;
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    /* display: none; */
+    -webkit-animation:popZoom 0.2s ease-in-out both;
+    animation:popZoom 0.2s ease-in-out both;
+}
+.mask01{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: none;
+}
+.pop01 span {
+    max-height: 8rem;
+    overflow-y: scroll;
+    display: block;
+    line-height: 160%;
+    text-align: center;
+    font-size: 0.65rem;
+    padding: 1.4rem 0.6rem;
+    color: #222;
+}
