@@ -1,8 +1,8 @@
 $(function () {
     //var path = "http://10.10.116.170:21002/",//本地
     //var path = "http://10.219.10.72:21002/",//测试环境
-    var path = "http://10.10.116.90:21002/order/",//本地
-    //var path = "https://www.dahuobaoxian.com/order/",//生产环境
+    //var path = "http://10.10.116.90:21002/order/",//本地
+    var path = "https://www.dahuobaoxian.com/order/",//生产环境
         productNo = getQueryString("productNo"),
         memberId = getQueryString("memberId"),
         channelCode = getQueryString("channelCode"),
@@ -23,7 +23,7 @@ $(function () {
     //orderStatus = "6";//订单删除
     //orderStatus = "7";//待续保
     //orderStatus = "8";//已预约
-    console.log(productNo, memberId, channelCode, orderNo, orderStatus, code);
+    //console.log(productNo, memberId, channelCode, orderNo, orderStatus, code);
 
     //判断显示理赔还是再投
     if (orderStatus == "3") {
@@ -41,7 +41,6 @@ $(function () {
     sendRequest(path + "orderInfo/getOrderInfoDetail",{memberId: memberId, orderNo: orderNo, code: code}, function (data) {
         console.log(data);
         if (data.code == "0") {
-            console.log(data);
             var dataObj = data.data;
             var orderShowInfoList = dataObj.orderShowInfoList,
                 dutyShowInfoList = dataObj.dutyShowInfoList,
@@ -99,6 +98,7 @@ $(function () {
         } else if (data.code == "1") {
             $(".mask01 span").text(data.msg);
             $(".mask01").show();
+            $(".pop01").show();
         }
     }, function () {
 

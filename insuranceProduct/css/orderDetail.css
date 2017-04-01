@@ -253,7 +253,7 @@ footer.infoList {
     margin-top: -75px;
     background: #fff;
     border: 1px solid #e2e2e2;
-    /* display: none; */
+     display: none;
     -webkit-animation:popZoom 0.2s ease-in-out both;
     animation:popZoom 0.2s ease-in-out both;
 }

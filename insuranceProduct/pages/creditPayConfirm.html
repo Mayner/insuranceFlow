@@ -148,22 +148,38 @@
                 var newDate = new Date(date.getTime() + ms);
                 return newDate;
             }
-            opt.date = {preset : 'date'};
-            opt.datetime = {preset : 'datetime'};
-            opt.time = {preset : 'time'};
-            opt.default = {
+//            opt.date = {preset : 'date'};
+//            opt.datetime = {preset : 'datetime'};
+//            opt.time = {preset : 'time'};
+//            opt.default = {
+//                theme: 'android-ics light', //皮肤样式
+//                display: 'bottom', //显示方式
+//                rtl:true,
+//                mode: 'scroller', //日期选择模式
+//                lang:'zh',
+//                dateFormat: 'yyyy-mm',
+//                dateOrder: 'mmyy',
+//                startYear:currYear - 80, //开始年份
+//                endYear:currYear + 30, //结束年份
+//                minDate: addDay(1)
+//            };
+//            $("#valid").scroller('destroy').scroller($.extend(opt['date'], opt['default']));
+
+            $("#valid").mobiscroll().date({
                 theme: 'android-ics light', //皮肤样式
                 display: 'bottom', //显示方式
-                rtl:true,
+                //rtl:true,
                 mode: 'scroller', //日期选择模式
                 lang:'zh',
                 dateFormat: 'yyyy-mm',
-                dateOrder: 'mmyy',
+                //dateOrder: 'mmyy',
                 startYear:currYear - 80, //开始年份
                 endYear:currYear + 30, //结束年份
-                minDate: addDay(1)
-            };
-            $("#valid").scroller('destroy').scroller($.extend(opt['date'], opt['default']));
+                minDate: addDay(1),
+                //wheels:[], //设置此属性可以只显示年月，此处演示，就用下面的onBeforeShow方法,另外也可以用treelist去实现
+                onBeforeShow: function (inst) { inst.settings.wheels[0].length>2?inst.settings.wheels[0].pop():null; }//弹掉“日”滚轮
+            });
+
         });
     </script>
 </body>
