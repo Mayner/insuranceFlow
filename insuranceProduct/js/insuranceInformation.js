@@ -484,7 +484,9 @@ $(function () {
     //银行卡号校验
     $("#cardNo").on("blur", function () {
         checkCardNo($(this));
-        $("#cardNoAgain").val("");
+        if (checkCardNo($(this)) && ($(this).val().trim() != $("#cardNoAgain").val().trim())) {
+            $("#cardNoAgain").val("");
+        }
     });
     //再次输入银行卡号校验
     $("#cardNoAgain").on("blur", function () {
